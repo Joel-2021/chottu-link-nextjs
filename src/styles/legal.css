@@ -1,0 +1,32 @@
+/* Legal Content */
+.client-content {
+    /*margin: 0 auto;*/
+    /*line-height: 1.6;*/
+}
+
+.client-content p {
+    margin-bottom: 1rem;
+}
+
+.client-content h1,
+.client-content h2,
+.client-content h3,
+.client-content h4,
+.client-content h5,
+.client-content h6 {
+    font-size: revert;
+    font-weight: revert;
+    margin-bottom: revert;
+    font-family: "Quicksand", sans-serif;
+}
+
+.client-content ul {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+}
+
+.client-content a {
+    color: #006ae6;
+    text-decoration: underline;
+}

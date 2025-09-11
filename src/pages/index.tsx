@@ -49,11 +49,10 @@ export default function Home() {
                         </p>
 
                         <div className="btn-container">
-                            <Button variant="outline" className="min-h-[44px] min-w-[120px] px-4 py-2">
-                                <Link href={ CONFIG.links.dashboard } target={ "_blank" }
-                                      className={ "h-full w-full flex items-center justify-center" }>
-                                    Start Free
-                                </Link>
+                            <Button
+                                variant="outline"
+                                onClick={() => window.open(CONFIG.links.dashboard, "_blank")}>
+                                Start Free
                             </Button>
                         </div>
                     </div>

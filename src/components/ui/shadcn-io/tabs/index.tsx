@@ -179,7 +179,6 @@ function TabsTrigger({
             <motion.button
                 ref={ localRef }
                 data-slot="tabs-trigger"
-                role="tab"
                 aria-selected={activeValue === value}
                 whileTap={ { scale: 0.95 } }
                 onClick={ () => handleValueChange(value) }

@@ -338,11 +338,11 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 started</p>
                         </div>
 
-                        <Button variant="outline">
-                            <Link href={ CONFIG.links.dashboard } target={ "_blank" }
-                                  className={ "h-full w-full flex items-center justify-center" }>
-                                Start Free
-                            </Link>
+                        <Button
+                            variant="outline"
+                            onClick={() => window.open(CONFIG.links.dashboard, "_blank")}
+                        >
+                            Start Free
                         </Button>
                     </div>
                 </section>

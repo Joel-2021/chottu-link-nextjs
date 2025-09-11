@@ -15,7 +15,7 @@ export default function JourneySection() {
                         <div className="absolute h-[1px] bg-tertiary w-full bottom-[17px] left-0 right-0"></div>
                         { journeys.map((journey, i) => (
                             <TabsTrigger
-                                key={ i } aria-label={journey.title}
+                                key={ i }
                                 value={ String(i) }
                                 className="shrink-0 min-w-[140px] font-secondary text-tertiary text-sm md:text-base sm:text-lg lg:text-xl"
                             >

@@ -535,6 +535,7 @@ function MotionHighlightItem({
     <div
       key={childValue}
       ref={localRef}
+      role="tab"
       data-slot="motion-highlight-item-container"
       className={cn(mode === 'children' && 'relative', className)}
       {...dataAttributes}

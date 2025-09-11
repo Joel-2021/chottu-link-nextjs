@@ -58,7 +58,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div>
-                        <Image src="/images/home/section1.webp" height="506" width="743" priority
+                        <Image src="/images/home/section1.webp" height="506" width="743" priority={true}
                                alt="hero-section"/>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ export default function Home() {
                         src="/images/home/section2.webp"
                         height="458"
                         width="489"
-                        priority
+                        priority={true}
                         alt="section2"
                         className="w-full sm:w-auto h-auto"
                     />

@@ -208,33 +208,34 @@ function TabsContents({ children, className }: TabsContentsProps) {
 
     return (
         <div className={ cn("relative w-full", className) }>
-            { React.Children.map(children, (child) =>
-                React.isValidElement(child) ? (
+            {React.Children.map(children, (child) => {
+                if (!React.isValidElement<{ value: string }>(child)) return null;
+                const value = child.props.value; // now TS knows `value` exists
+
+                return (
                     <motion.div
-                        key={ child.props.value }
-                        initial={ { opacity: 0, y: 10, scale: 0.98 } }
-                        animate={ {
-                            opacity: activeValue === child.props.value ? 1 : 0,
-                            y: activeValue === child.props.value ? 0 : 10,
-                            scale: activeValue === child.props.value ? 1 : 0.98,
-                        } }
-                        exit={ { opacity: 0, y: -10, scale: 0.98 } }
-                        transition={ {
+                        key={value}
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{
+                            opacity: activeValue === value ? 1 : 0,
+                            y: activeValue === value ? 0 : 10,
+                            scale: activeValue === value ? 1 : 0.98,
+                        }}
+                        exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                        transition={{
                             type: "spring",
                             stiffness: 200,
                             damping: 25,
-                        } }
-                        className={ cn(
+                        }}
+                        className={cn(
                             "absolute top-0 left-0 w-full",
-                            activeValue === child.props.value
-                                ? "relative z-10"
-                                : "pointer-events-none z-0"
-                        ) }
+                            activeValue === value ? "relative z-10" : "pointer-events-none z-0"
+                        )}
                     >
-                        { child }
+                        {child}
                     </motion.div>
-                ) : null
-            ) }
+                );
+            })}
         </div>
     );
 }

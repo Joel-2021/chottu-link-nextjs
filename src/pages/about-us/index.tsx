@@ -2,7 +2,7 @@ import ContactDialog from "@/components/contact-us";
 import { Button } from "@/components/ui/button";
 import Head from "next/head";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { easeIn, motion } from "motion/react";
 import { useState } from "react";
 
 export default function Pricing() {
@@ -21,7 +21,7 @@ export default function Pricing() {
 
     const fadeUp = {
         hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeIn } },
     }
 
     return (

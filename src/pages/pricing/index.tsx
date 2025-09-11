@@ -6,10 +6,10 @@ import { SubscriptionPlan } from "@/models/subscription-plans";
 import fs from "fs";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import path from "path";
 
 import dynamic from "next/dynamic"
+import { useState } from "react";
 
 const PricingSlider = dynamic(() => import("../../components/pricing-slider"), {
     ssr: true,
@@ -23,6 +23,7 @@ const ContactDialog = dynamic(() => import("../../components/contact-us"), {
 
 export default function Pricing({ subscriptionPackages }: { subscriptionPackages: SubscriptionPlan[] }) {
 
+    const [open, setOpen] = useState(false);
     const title = 'ChottuLink - Pricing | Clear, Upfront Pricing';
     const metaDesctiption = 'Clear, upfront pricing for ChottuLink deep linking solutions. No hidden fees, no gimmicks—just transparent pricing and unbeatable value.';
 
@@ -105,11 +106,10 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
 
                                 {/* Footer */ }
                                 <div className="card-footer">
-                                    <button
-                                        className={ "w-full bg-[#abc7ff] p-2 cursor-pointer font-bold text-background rounded-3xl" }>
-                                        <Link href={ CONFIG.links.pricing } target={ "_blank" }>
+                                    <button className={ "w-full bg-[#abc7ff] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
+                                            onClick={() => window.open(CONFIG.links.pricing, "_blank")}>
+
                                             Get Started
-                                        </Link>
                                     </button>
                                 </div>
                             </div>
@@ -148,7 +148,11 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
 
                             {/* Footer */ }
                             <div className="card-footer">
-                                <ContactDialog/>
+                                <button className={ "w-full bg-[#abc7ff] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
+                                        onClick={() => setOpen(true)}>
+                                    Contact Us
+                                </button>
+                                <ContactDialog open={open} setOpen={setOpen}/>
                             </div>
                         </div>
 

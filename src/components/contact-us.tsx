@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react";
 import { toast } from "sonner";
 
 import { z } from "zod"
@@ -35,7 +34,12 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>
 
-export default function ContactDialog() {
+type ContactDialogProps = {
+    open: boolean;
+    setOpen: (value: boolean) => void;
+};
+
+export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
@@ -45,8 +49,6 @@ export default function ContactDialog() {
             phone: "",
         },
     })
-
-    const [open, setOpen] = useState(false);
 
     function onSubmit(values: FormValues) {
         // trackEvent('Custom Pricing Requested', values);
@@ -64,11 +66,11 @@ export default function ContactDialog() {
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-                <button className="w-full bg-[#abc7ff] p-2 cursor-pointer font-bold text-background rounded-3xl">
-                    Contact Sales
-                </button>
-            </DialogTrigger>
+            {/*<DialogTrigger asChild>*/}
+            {/*    <button className="w-full bg-[#abc7ff] p-2 cursor-pointer font-bold text-background rounded-3xl">*/}
+            {/*        Contact Sales*/}
+            {/*    </button>*/}
+            {/*</DialogTrigger>*/}
 
             <DialogContent  onInteractOutside={(e) => {
                 e.preventDefault();

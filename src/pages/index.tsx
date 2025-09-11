@@ -131,7 +131,7 @@ export default function Home() {
                 </section>
             </section>
 
-            <section id="why-chottulink" className="mt-16 px-4">
+            <section id="why-chottulink" className="mt-16 px-4 scroll-mt-30">
                 <div className="max-w-1400 bg-[#002635] sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25"
                 >
                     <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center">

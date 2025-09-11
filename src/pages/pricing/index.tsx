@@ -352,27 +352,49 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
 }
 
 
-export async function getServerSideProps() {
-    let subscriptionPackages: SubscriptionPlan[] = []
+export async function getStaticProps() {
+    let subscriptionPackages = [];
 
     try {
-        const res = await fetch("https://api2.chottulink.com/chotuCore/api/v1/subscription/subscription/packages/all/cdiOpn")
-        if ( !res.ok ) {
-            throw new Error(`HTTP error! status: ${ res.status }`)
-        }
-
-        const data = await res.json()
-        subscriptionPackages = data.subscriptionPackDetailsResponses || []
+        const res = await fetch("https://api2.chottulink.com/chotuCore/api/v1/subscription/subscription/packages/all/cdiOpn");
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+        subscriptionPackages = data.subscriptionPackDetailsResponses || [];
     } catch (error) {
-        console.error("Error loading pricing data:", error)
+        console.error("Error loading pricing data:", error);
         const filePath = path.join(process.cwd(), "data", "pricing.json");
         const fileContent = fs.readFileSync(filePath, "utf-8");
         const localData = JSON.parse(fileContent);
-
         subscriptionPackages = localData.subscriptionPackDetailsResponses;
     }
 
     return {
         props: { subscriptionPackages },
-    }
+        revalidate: 60, // regenerate page at most every 60 seconds
+    };
 }
+
+// export async function getServerSideProps() {
+//     let subscriptionPackages: SubscriptionPlan[] = []
+//
+//     try {
+//         const res = await fetch("https://api2.chottulink.com/chotuCore/api/v1/subscription/subscription/packages/all/cdiOpn")
+//         if ( !res.ok ) {
+//             throw new Error(`HTTP error! status: ${ res.status }`)
+//         }
+//
+//         const data = await res.json()
+//         subscriptionPackages = data.subscriptionPackDetailsResponses || []
+//     } catch (error) {
+//         console.error("Error loading pricing data:", error)
+//         const filePath = path.join(process.cwd(), "data", "pricing.json");
+//         const fileContent = fs.readFileSync(filePath, "utf-8");
+//         const localData = JSON.parse(fileContent);
+//
+//         subscriptionPackages = localData.subscriptionPackDetailsResponses;
+//     }
+//
+//     return {
+//         props: { subscriptionPackages },
+//     }
+// }

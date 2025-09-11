@@ -1,14 +1,14 @@
 import FeaturesSection from "@/components/features-section";
 import GetStarted from "@/components/get-started";
-import JourneySection from "@/components/journey-section";
-import { AreaChart } from "@/components/area-chart";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/ui/shadcn-io/marquee";
-import { CONFIG } from "@/config/config";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
+import JourneySection from "@/components/journey-section";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AreaChart } from "@/components/area-chart";
+import { Button } from "@/components/ui/button";
+import { CONFIG } from "@/config/config";
+import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/ui/shadcn-io/marquee";
+import { motion } from "motion/react"
 
 export default function Home() {
     const title = 'Deep Linking Done Right | Firebase Dynamic Links Alternative';
@@ -36,143 +36,238 @@ export default function Home() {
 
             <section id="home" className="max-w-1400 mt-12 scroll-mt-30 mx-auto px-4">
                 <div className="sm:columns-2 mt-8 mb-24 flex items-center flex-col sm:flex-row">
-                    <div className="sm:text-start text-center sm:mb-0 mb-10">
-                        <h1 className="text-2xl sm:text-5xl font-semibold">
+                    <motion.div
+                        className="sm:text-start text-center sm:mb-0 mb-10"
+                        initial={ { opacity: 0, y: 40 } }
+                        whileInView={ { opacity: 1, y: 0 } }
+                        transition={ { duration: 0.7, ease: "easeOut" } }
+                        viewport={ { once: true, amount: 0.3 } } // animates when 30% visible
+                    >
+                        <motion.h1
+                            className="text-2xl sm:text-5xl font-semibold"
+                            initial={ { opacity: 0, y: 30 } }
+                            whileInView={ { opacity: 1, y: 0 } }
+                            transition={ { duration: 0.8, delay: 0.2 } }
+                            viewport={ { once: true } }
+                        >
                             A Seamless Drop-in <br/> Replacement for Firebase <br/> Dynamic Links
-                        </h1>
+                        </motion.h1>
 
-                        <p className="mt-4 mb-6 text-lg">
+                        <motion.p
+                            className="mt-4 mb-6 text-lg text-balance"
+                            initial={ { opacity: 0, y: 20 } }
+                            whileInView={ { opacity: 1, y: 0 } }
+                            transition={ { duration: 0.8, delay: 0.4 } }
+                            viewport={ { once: true } }
+                        >
                             Enjoy a powerful, scalable, and fully-featured deep linking experience with zero downtime
-                            and
-                            minimal
-                            integration effort.
-                        </p>
+                            and minimal integration effort.
+                        </motion.p>
 
-                        <div className="btn-container">
+                        <motion.div
+                            className="btn-container"
+                            initial={ { opacity: 0, scale: 0.9 } }
+                            whileInView={ { opacity: 1, scale: 1 } }
+                            transition={ { duration: 0.6, delay: 0.6 } }
+                            viewport={ { once: true } }
+                        >
                             <Button
                                 variant="outline"
-                                onClick={() => window.open(CONFIG.links.dashboard, "_blank")}>
+                                onClick={ () => window.open(CONFIG.links.dashboard, "_blank") }
+                            >
                                 Start Free
                             </Button>
-                        </div>
-                    </div>
-                    <div>
-                        <Image src="/images/home/section1.webp" height="506" width="743" priority={true}
-                               alt="hero-section"/>
-                    </div>
+                        </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={ { opacity: 0, x: 50 } }
+                        whileInView={ { opacity: 1, x: 0 } }
+                        transition={ { duration: 0.8, delay: 0.3 } }
+                        viewport={ { once: true } }
+                    >
+                        <Image
+                            src="/images/home/section1.webp"
+                            height="506"
+                            width="743"
+                            priority={ true }
+                            alt="hero-section"
+                        />
+                    </motion.div>
                 </div>
 
+                {/* Trusted Brands */ }
                 <section className="text-center my-24">
-                    <h1 className="mt-12 sm:mt-24 mb-10 text-2xl sm:text-4xl font-semibold">Trusted By Leading Brands
-                        Worldwide</h1>
+                    <motion.h1
+                        className="mt-12 sm:mt-24 mb-10 text-2xl sm:text-4xl font-semibold"
+                        initial={ { opacity: 0, y: 30 } }
+                        whileInView={ { opacity: 1, y: 0 } }
+                        transition={ { duration: 0.8 } }
+                        viewport={ { once: true } }
+                    >
+                        Trusted By Leading Brands Worldwide
+                    </motion.h1>
 
-                    <div className="flex items-center justify-center gap-4 mb-10">
+                    <motion.div
+                        className="flex items-center justify-center gap-4 mb-10"
+                        initial={ { opacity: 0 } }
+                        whileInView={ { opacity: 1 } }
+                        transition={ { duration: 1, delay: 0.2 } }
+                        viewport={ { once: true } }
+                    >
                         <div className="brand">
-                            <Image src="/images/home/atrangii.webp" height="101" width="101"
-                                   alt="atrangii" className="size-[80px]"/>
+                            <Image src="/images/home/atrangii.webp" height="101" width="101" alt="atrangii"
+                                   className="size-[80px]"/>
                         </div>
                         <div className="brand">
-                            <Image src="/images/home/hariom.webp" height="101" width="101"
-                                   alt="hariom" className="size-[80px]"/>
+                            <Image src="/images/home/hariom.webp" height="101" width="101" alt="hariom"
+                                   className="size-[80px]"/>
                         </div>
                         <div className="brand">
-                            <Image src="/images/home/ullu.webp" height="101" width="101"
-                                   alt="ullu" className="size-[80px]"/>
+                            <Image src="/images/home/ullu.webp" height="101" width="101" alt="ullu"
+                                   className="size-[80px]"/>
                         </div>
-                    </div>
+                    </motion.div>
                 </section>
             </section>
 
-            <section id="why-chottulink"
-                className="mt-16 max-w-1400 bg-[#002635] sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25">
-                <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center">
-                    <Image
-                        src="/images/home/section2.webp"
-                        height="458"
-                        width="489"
-                        priority={true}
-                        alt="section2"
-                        className="w-full sm:w-auto h-auto"
-                    />
-                    <div className="mt-2">
-                        <h2 className="font-semibold text-2xl sm:text-4xl mb-5">
-                            Seamless Deep Linking for Universal Compatibility
-                        </h2>
+            <section id="why-chottulink" className="mt-16 px-4">
+                <div className="max-w-1400 bg-[#002635] sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25"
+                >
+                    <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center">
+                        <motion.div
+                            initial={ { opacity: 0, x: -60 } }
+                            whileInView={ { opacity: 1, x: 0 } }
+                            transition={ { duration: 0.8, ease: "easeOut" } }
+                            viewport={ { once: true, amount: 0.3 } }
+                        >
+                            <Image
+                                src="/images/home/section2.webp"
+                                height="458"
+                                width="489"
+                                priority={ true }
+                                alt="section2"
+                                className="w-full sm:w-auto h-auto"
+                            />
+                        </motion.div>
 
-                        {/* bullet points */ }
-                        { [
-                            {
-                                title: "Smart Redirection",
-                                text: "Automatically routes users to the right destination, whether it's an app, a web page, or an app store.",
-                            },
-                            {
-                                title: "Cross-Platform Consistency",
-                                text: "A single link that adapts to any device and operating system.",
-                            },
-                            {
-                                title: "Improved User Engagement",
-                                text: "Keep users connected with a smooth transition between mobile and web experiences.",
-                            },
-                        ].map(({ title, text }) => (
-                            <div key={ title } className="flex gap-2 items-start mb-3">
-                                <Image
-                                    src="/images/pointer.webp"
-                                    height="20"
-                                    width="20"
-                                    alt="pointer"
-                                    className="mt-1"
-                                />
-                                <div>
-                                    <h4 className="font-bold text-lg sm:text-xl mb-1">{ title }</h4>
-                                    <p className="font-secondary text-base sm:text-lg">{ text }</p>
-                                </div>
-                            </div>
-                        )) }
+                        <motion.div
+                            className="mt-2"
+                            initial={ { opacity: 0, x: 60 } }
+                            whileInView={ { opacity: 1, x: 0 } }
+                            transition={ { duration: 0.8, ease: "easeOut" } }
+                            viewport={ { once: true, amount: 0.3 } }
+                        >
+                            <h2 className="font-semibold text-2xl sm:text-4xl mb-5">
+                                Seamless Deep Linking for Universal Compatibility
+                            </h2>
+
+                            {/* Bullet points with staggered animation */ }
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={ { once: true, amount: 0.3 } }
+                                variants={ {
+                                    hidden: {},
+                                    visible: {
+                                        transition: { staggerChildren: 0.2 }
+                                    }
+                                } }
+                            >
+                                { [
+                                    {
+                                        title: "Smart Redirection",
+                                        text: "Automatically routes users to the right destination, whether it's an app, a web page, or an app store.",
+                                    },
+                                    {
+                                        title: "Cross-Platform Consistency",
+                                        text: "A single link that adapts to any device and operating system.",
+                                    },
+                                    {
+                                        title: "Improved User Engagement",
+                                        text: "Keep users connected with a smooth transition between mobile and web experiences.",
+                                    },
+                                ].map(({ title, text }) => (
+                                    <motion.div
+                                        key={ title }
+                                        className="flex gap-2 items-start mb-3"
+                                        variants={ {
+                                            hidden: { opacity: 0, y: 20 },
+                                            visible: { opacity: 1, y: 0 }
+                                        } }
+                                        transition={ { duration: 0.6 } }
+                                    >
+                                        <Image
+                                            src="/images/pointer.webp"
+                                            height="20"
+                                            width="20"
+                                            alt="pointer"
+                                            className="mt-1"
+                                        />
+                                        <div>
+                                            <h4 className="font-bold text-lg sm:text-xl mb-1">{ title }</h4>
+                                            <p className="font-secondary text-base sm:text-lg">{ text }</p>
+                                        </div>
+                                    </motion.div>
+                                )) }
+                            </motion.div>
+                        </motion.div>
                     </div>
-                </div>
 
-                {/* marquee section */ }
-                <div className="mt-8">
-                    <Marquee className="py-3">
-                        <MarqueeFade side="left" className="bg-gradient-to-r from-[#002635] to-transparent"/>
-                        <MarqueeFade side="right" className="bg-gradient-to-l from-[#002635] to-transparent"/>
-                        <MarqueeContent className="bg-[#002635]">
-                            { [
-                                "android",
-                                "twitter",
-                                "messenger",
-                                "youtube",
-                                "flutter",
-                                "safari",
-                                "facebook",
-                                "apple",
-                                "slack",
-                            ].map((icon) => (
-                                <MarqueeItem
-                                    key={ icon }
-                                    className="size-[60px] rounded-full bg-[#011E2B] flex items-center justify-center"
-                                >
-                                    <Image
-                                        src={ `/images/home/marquee/${ icon }.webp` }
-                                        height="40"
-                                        width="40" className="w-auto"
-                                        alt={ icon }
-                                    />
-                                </MarqueeItem>
-                            )) }
-                        </MarqueeContent>
-                    </Marquee>
+
+                    <motion.div
+                        // className="mt-8"
+                        // initial={ { opacity: 0, scale: 0.95 } }
+                        // whileInView={ { opacity: 1, scale: 1 } }
+                        // transition={ { duration: 0.8, ease: "easeOut" } }
+                        // viewport={ { once: true, amount: 0.2 } }
+                    >
+                        <Marquee className="py-3">
+                            <MarqueeFade side="left" className="bg-gradient-to-r from-[#002635] to-transparent"/>
+                            <MarqueeFade side="right" className="bg-gradient-to-l from-[#002635] to-transparent"/>
+                            <MarqueeContent className="bg-[#002635]">
+                                { [
+                                    "android",
+                                    "twitter",
+                                    "messenger",
+                                    "youtube",
+                                    "flutter",
+                                    "safari",
+                                    "facebook",
+                                    "apple",
+                                    "slack",
+                                ].map((icon, i) => (
+                                    <MarqueeItem key={ i }
+                                        className="size-[60px] rounded-full bg-[#011E2B] flex items-center justify-center">
+                                        <Image
+                                            src={ `/images/home/marquee/${ icon }.webp` }
+                                            height="40"
+                                            width="40"
+                                            className="w-auto"
+                                            alt={ icon }
+                                        />
+                                    </MarqueeItem>
+                                )) }
+                            </MarqueeContent>
+                        </Marquee>
+                    </motion.div>
                 </div>
             </section>
-
 
             <JourneySection/>
             <FeaturesSection/>
 
             <section className="bg-[linear-gradient(180deg,#002635_0%,#010F15_100%)] py-16 scroll-mt-24 px-4">
                 <div className="max-w-1400 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+
                     {/* Left Column */ }
-                    <div className="w-full max-w-xl mx-auto text-center md:text-left">
+                    <motion.div
+                        className="w-full max-w-xl mx-auto text-center md:text-left"
+                        initial={ { opacity: 0, x: -50 } }
+                        whileInView={ { opacity: 1, x: 0 } }
+                        viewport={ { once: true, amount: 0.3 } }
+                        transition={ { duration: 0.7, ease: "easeOut" } }
+                    >
                         <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
                             Discover Campaign Success with Powerful Analytics
                         </h3>
@@ -183,112 +278,133 @@ export default function Home() {
                         </p>
 
                         <div className="py-3 space-y-2">
-                            <p className="text-base md:text-lg flex gap-2 items-center">
-                                <Image
-                                    src="/images/pointer.webp"
-                                    height="20"
-                                    width="20"
-                                    alt="pointer"
-                                    className="h-[15px] w-[15px]"
-                                />
-                                Go Beyond Clicks
-                            </p>
-                            <p className="text-base md:text-lg flex gap-2 items-center">
-                                <Image
-                                    src="/images/pointer.webp"
-                                    height="20"
-                                    width="20"
-                                    alt="pointer"
-                                    className="h-[15px] w-[15px]"
-                                />
-                                Advanced Grouping & Filtering
-                            </p>
-                            <p className="text-base md:text-lg flex gap-2 items-center">
-                                <Image
-                                    src="/images/pointer.webp"
-                                    height="20"
-                                    width="20"
-                                    alt="pointer"
-                                    className="h-[15px] w-[15px]"
-                                />
-                                Web-to-App Performance Insights
-                            </p>
+                            { [ "Go Beyond Clicks", "Advanced Grouping & Filtering", "Web-to-App Performance Insights" ].map((item, i) => (
+                                <motion.p
+                                    key={ i }
+                                    className="text-base md:text-lg flex gap-2 items-center"
+                                    initial={ { opacity: 0, x: -20 } }
+                                    whileInView={ { opacity: 1, x: 0 } }
+                                    viewport={ { once: true, amount: 0.3 } }
+                                    transition={ { duration: 0.5, delay: 0.1 * i } }
+                                >
+                                    <Image
+                                        src="/images/pointer.webp"
+                                        height="20"
+                                        width="20"
+                                        alt="pointer"
+                                        className="h-[15px] w-[15px]"
+                                    />
+                                    { item }
+                                </motion.p>
+                            )) }
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Column */ }
-                    <div className="w-full">
+                    <motion.div
+                        className="w-full"
+                        initial={ { opacity: 0, scale: 0.95 } }
+                        whileInView={ { opacity: 1, scale: 1 } }
+                        viewport={ { once: true, amount: 0.3 } }
+                        transition={ { duration: 0.7, ease: "easeOut" } }
+                    >
                         <AreaChart/>
-                    </div>
+                    </motion.div>
                 </div>
-
             </section>
 
+            {/* Section 2 */ }
             <section className="bg-black py-16 scroll-mt-24 px-4">
                 <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
-                    <Image
-                        src="/images/home/laptop.webp"
-                        alt="laptop" height={ 442 } width={ 732 }
-                        className="w-full max-w-[744px] h-auto"
-                    />
-                    <div className="max-w-xl text-center md:text-left">
+                    <motion.div
+                        initial={ { opacity: 0, y: 50 } }
+                        whileInView={ { opacity: 1, y: 0 } }
+                        viewport={ { once: true, amount: 0.3 } }
+                        transition={ { duration: 0.8, ease: "easeOut" } }
+                    >
+                        <Image
+                            src="/images/home/laptop.webp"
+                            alt="laptop"
+                            height={ 442 }
+                            width={ 732 }
+                            className="w-full max-w-[744px] h-auto"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="max-w-xl text-center md:text-left"
+                        initial={ { opacity: 0, x: 50 } }
+                        whileInView={ { opacity: 1, x: 0 } }
+                        viewport={ { once: true, amount: 0.3 } }
+                        transition={ { duration: 0.8, ease: "easeOut", delay: 0.2 } }
+                    >
                         <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
                             Convert, Retain, and Grow with ChottuLink
                         </h3>
                         <p className="text-base md:text-lg font-medium font-secondary">
                             Many users drop off after their first interaction. Our advanced engagement tools
                             help you bring them back with tailored messaging and intelligent retargeting
-                            strategies—ensuring a higher
-                            return
-                            on your marketing investments.
+                            strategies—ensuring a higher return on your marketing investments.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             <section
-                className="bg-[linear-gradient(180deg,transparent_0%,#010F15_50%,#002635_100%)] text-center mx-auto px-4">
+                className="bg-[linear-gradient(180deg,transparent_0%,#010F15_50%,#002635_100%)] text-center mx-auto px-4"
+            >
                 <div className="max-w-1400 mx-auto">
-                    <h2 className="pt-12 sm:pt-20 mb-10 flex justify-center text-2xl sm:text-4xl font-semibold">
-                        Optimize Every Link <br/> Amplify Every Campaign</h2>
+                    <motion.h2
+                        className="pt-12 sm:pt-20 mb-10 flex justify-center text-2xl sm:text-4xl font-semibold"
+                        initial={ { opacity: 0, y: 30 } }
+                        whileInView={ { opacity: 1, y: 0 } }
+                        viewport={ { once: true } }
+                        transition={ { duration: 0.6 } }
+                    >
+                        Optimize Every Link <br/> Amplify Every Campaign
+                    </motion.h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div
-                            className="bg-[linear-gradient(64deg,#BC2ED2_-126.24%,#001219_130.87%)] rounded-[18px] text-start flex flex-col justify-center items-center text-lg">
-                            <div className="px-8 py-8 sm:py-0">
-                                <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
-                                    <Image src="/images/home/journey.webp" alt="journey" height={ 60 }
-                                           width={ 60 }
-                                           className="sm:size-[60px] size-[40px]"/>
-                                    <h4 className="sm:text-3xl text-2xl">Create personalized journeys in real time</h4>
+                        { [
+                            {
+                                gradient: "bg-[linear-gradient(64deg,#BC2ED2_-126.24%,#001219_130.87%)]",
+                                img: "/images/home/journey.webp",
+                                title: "Create personalized journeys in real time",
+                                desc: "Optimize how you connect with users, ensure a seamless brand experience, and unlock the power to scale campaigns with precision and confidence.",
+                            },
+                            {
+                                gradient: "bg-[linear-gradient(330deg,#684FCE_-111.43%,#001219_107.11%)]",
+                                img: "/images/home/cycle.webp",
+                                title: "Make your brand consistent across every touchpoint",
+                                desc: "From custom domains and titles to thumbnails, descriptions, short links, and QR codes—everything tailored to your brand, completely yours.",
+                            },
+                        ].map((card, i) => (
+                            <motion.div
+                                key={ i }
+                                className={ `rounded-[18px] ${ card.gradient } text-start flex flex-col justify-center items-center text-lg` }
+                                initial={ { opacity: 0, y: 50 } }
+                                whileInView={ { opacity: 1, y: 0 } }
+                                viewport={ { once: true } }
+                                transition={ { duration: 0.6, delay: i * 0.2 } }
+                            >
+                                <div className="px-8 py-8 sm:py-0">
+                                    <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
+                                        <Image src={ card.img } alt="journey" height={ 60 } width={ 60 }
+                                               className="sm:size-[60px] size-[40px]"/>
+                                        <h4 className="sm:text-3xl text-2xl">{ card.title }</h4>
+                                    </div>
+                                    <p>{ card.desc }</p>
                                 </div>
-                                <p>
-                                    Optimize how you connect with users, ensure a seamless brand experience, and unlock
-                                    the power
-                                    to scale campaigns with precision and confidence.
-                                </p>
-                            </div>
-                        </div>
+                            </motion.div>
+                        )) }
 
-                        <div
-                            className="bg-[linear-gradient(330deg,#684FCE_-111.43%,#001219_107.11%)] rounded-[18px] text-start flex flex-col justify-center items-center text-lg">
-                            <div className="px-8 py-8 sm:py-0">
-                                <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
-                                    <Image src="/images/home/cycle.webp" alt="cycle" height={ 60 } width={ 60 }
-                                           className="sm:size-[60px] size-[40px]"/>
-                                    <h4 className="sm:text-3xl text-2xl">Make your brand consistent across every
-                                        touchpoint</h4>
-                                </div>
-                                <p>
-                                    From custom domains and titles to thumbnails, descriptions, short links, and QR
-                                    codes—
-                                    everything tailored to your brand, completely yours.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            className="rounded-[18px] bg-[linear-gradient(28deg,#684FCE_0%,#41317E_100%)] text-start md:col-start-2 md:row-start-1 md:row-span-2">
+                        <motion.div
+                            className="rounded-[18px] bg-[linear-gradient(28deg,#684FCE_0%,#41317E_100%)] text-start md:col-start-2 md:row-start-1 md:row-span-2"
+                            initial={ { opacity: 0, x: 50 } }
+                            whileInView={ { opacity: 1, x: 0 } }
+                            viewport={ { once: true } }
+                            transition={ { duration: 0.6, delay: 0.4 } }
+                        >
                             <div className="p-8">
                                 <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
                                     <Image src="/images/home/link.webp" alt="bulk" height={ 60 } width={ 60 }
@@ -296,83 +412,101 @@ export default function Home() {
                                     <h4 className="sm:text-3xl text-2xl">Bulk link generation made simple</h4>
                                 </div>
                                 <p>
-                                    With just a few clicks, you can generate and customize thousands of links at once—
-                                    saving time, reducing errors, and making it effortless to launch campaigns at scale.
+                                    With just a few clicks, you can generate and customize thousands of links at
+                                    once—saving time, reducing
+                                    errors, and making it effortless to launch campaigns at scale.
                                 </p>
                             </div>
 
                             <div
                                 className="px-8 flex gap-4 text-lg font-medium sm:flex-row flex-col-reverse items-center justify-center">
-                                <Image src="/images/home/bulk-generation.webp" alt="bulk" height={ 406 }
-                                       width={ 287 }
-                                       className="sm:max-h-auto max-h-[300px] w-auto"/>
+                                <Image
+                                    src="/images/home/bulk-generation.webp"
+                                    alt="bulk"
+                                    height={ 406 }
+                                    width={ 287 }
+                                    className="sm:max-h-auto max-h-[300px] w-auto"
+                                />
                                 <div>
                                     <h4 className="text-[26px] font-semibold mb-4 leading-8">Scalable Link
                                         Management</h4>
                                     <p>Generate thousands of branded links in seconds</p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
                 <div className="max-w-1400 mx-auto">
-                    <h2 className="mt-12 sm:mt-20 mb-4 flex justify-center text-2xl sm:text-4xl font-semibold">Switch
-                        Seamlessly,
-                        Without <br/> A Single Line Of Code</h2>
-                    <p className="text-[20px] my-4 mb-8 [text-wrap:balance]">ChottuLink makes migration effortless. Move
-                        your campaigns, data, and tracking setup in
-                        just a few clicks—no
+                    <motion.h2
+                        className="mt-12 sm:mt-20 mb-4 flex justify-center text-2xl sm:text-4xl font-semibold"
+                        initial={ { opacity: 0, y: 30 } }
+                        whileInView={ { opacity: 1, y: 0 } }
+                        viewport={ { once: true } }
+                        transition={ { duration: 0.6, delay: 0.6 } }
+                    >
+                        Switch Seamlessly, Without <br/> A Single Line Of Code
+                    </motion.h2>
+                    <motion.p
+                        className="text-[20px] my-4 mb-8 [text-wrap:balance]"
+                        initial={ { opacity: 0 } }
+                        whileInView={ { opacity: 1 } }
+                        viewport={ { once: true } }
+                        transition={ { duration: 0.6, delay: 0.8 } }
+                    >
+                        ChottuLink makes migration effortless. Move your campaigns, data, and tracking setup in just a
+                        few clicks—no
                         technical expertise required. Get started instantly and focus on growth instead of integration
-                        hassles.</p>
+                        hassles.
+                    </motion.p>
+
                     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 pb-10">
-                        <div className="flex flex-col items-center text-center">
-                            <Image src="/images/home/steps/step1.webp" alt="step1" className="mb-3 w-20 h-20"
-                                   height={ 91 } width={ 91 }/>
-                            <h6 className="text-lg font-semibold">Step 1</h6>
-                            <p className="text-base">Connect Your <br/> Existing Setup</p>
-                        </div>
-                        <Image src="/images/home/arrow.webp" alt="arrow" className="hidden sm:block w-20"
-                               height={ 12 } width={ 87 }/>
-
-                        <div className="flex flex-col items-center text-center">
-                            <Image src="/images/home/steps/step2.webp" alt="step2" className="mb-3 w-20 h-20"
-                                   height={ 91 } width={ 91 }/>
-                            <h6 className="text-lg font-semibold">Step 2</h6>
-                            <p className="text-base">Import Existing <br/> Links & Campaigns</p>
-                        </div>
-                        <Image src="/images/home/arrow.webp" alt="arrow" className="hidden sm:block w-20"
-                               height={ 12 } width={ 87 }/>
-
-                        <div className="flex flex-col items-center text-center">
-                            <Image src="/images/home/steps/step3.webp" alt="step3" className="mb-3 w-20 h-20"
-                                   height={ 91 } width={ 91 }/>
-                            <h6 className="text-lg font-semibold">Step 3</h6>
-                            <p className="text-base">Customize <br/> Branding & Rules</p>
-                        </div>
-                        <Image src="/images/home/arrow.webp" alt="arrow" className="hidden sm:block w-20"
-                               height={ 12 } width={ 87 }/>
-
-                        <div className="flex flex-col items-center text-center">
-                            <Image src="/images/home/steps/step4.webp" alt="step4" className="mb-3 w-20 h-20"
-                                   height={ 91 } width={ 91 }/>
-                            <h6 className="text-lg font-semibold">Step 4</h6>
-                            <p className="text-base">Validate & Test</p>
-                        </div>
-                        <Image src="/images/home/arrow.webp" alt="arrow" className="hidden sm:block w-20"
-                               height={ 12 } width={ 87 }/>
-                        <div className="flex flex-col items-center text-center">
-                            <Image src="/images/home/steps/step5.webp" alt="step5" className="mb-3 w-20 h-20"
-                                   height={ 91 } width={ 91 }/>
-                            <h6 className="text-lg font-semibold">Step 5</h6>
-                            <p className="text-base">Go Live Instantly</p>
-                        </div>
+                        { [
+                            {
+                                img: "/images/home/steps/step1.webp",
+                                title: "Step 1",
+                                desc: "Connect Your <br/> Existing Setup"
+                            },
+                            {
+                                img: "/images/home/steps/step2.webp",
+                                title: "Step 2",
+                                desc: "Import Existing <br/> Links & Campaigns"
+                            },
+                            {
+                                img: "/images/home/steps/step3.webp",
+                                title: "Step 3",
+                                desc: "Customize <br/> Branding & Rules"
+                            },
+                            { img: "/images/home/steps/step4.webp", title: "Step 4", desc: "Validate & Test" },
+                            { img: "/images/home/steps/step5.webp", title: "Step 5", desc: "Go Live Instantly" },
+                        ].map((step, i) => (
+                            <motion.div
+                                key={ i }
+                                className="flex flex-col items-center text-center"
+                                initial={ { opacity: 0, y: 40 } }
+                                whileInView={ { opacity: 1, y: 0 } }
+                                viewport={ { once: true } }
+                                transition={ { duration: 0.6, delay: 0.2 * i } }
+                            >
+                                <Image src={ step.img } alt={ step.title } className="mb-3 w-20 h-20" height={ 91 }
+                                       width={ 91 }/>
+                                <h6 className="text-lg font-semibold">{ step.title }</h6>
+                                <p className="text-base" dangerouslySetInnerHTML={ { __html: step.desc } }/>
+                            </motion.div>
+                        )) }
+                        {/* Arrows between steps could remain static */ }
                     </div>
                 </div>
             </section>
 
             <section className="max-w-1400 mx-auto scroll-mt-24 px-4">
-                <div className="text-center md:mt-30 mt-25">
+                <motion.div
+                    initial={ { opacity: 0, scale: 0.95 } }
+                    whileInView={ { opacity: 1, scale: 1 } }
+                    viewport={ { once: true, amount: 0.3 } }
+                    transition={ { duration: 0.7 } }
+                    className="text-center md:mt-30 mt-25"
+                >
                     <h2 className="text-3xl sm:text-4xl font-bold mb-10">ChottuLink vs Other Competitors
                     </h2>
                     <div className="table-wrapper p-0 sm:p-3">
@@ -426,12 +560,27 @@ export default function Home() {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             <section className="max-w-1400 mx-auto scroll-mt-24 px-4">
-                <h2 className="md:mt-25 mt-12 text-3xl sm:text-4xl font-bold text-start mb-5">FAQ</h2>
-                <div className="w-full mx-auto my-8">
+                <motion.h2
+                    className="md:mt-25 mt-12 text-3xl sm:text-4xl font-bold text-start mb-5"
+                    initial={ { opacity: 0, y: 30 } }
+                    whileInView={ { opacity: 1, y: 0 } }
+                    viewport={ { once: true } }
+                    transition={ { duration: 0.6 } }
+                >
+                    FAQ
+                </motion.h2>
+
+                <motion.div
+                    className="w-full mx-auto my-8"
+                    initial={ { opacity: 0 } }
+                    whileInView={ { opacity: 1 } }
+                    viewport={ { once: true } }
+                    transition={ { duration: 0.6, delay: 0.2 } }
+                >
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1" className="border-b border-[#4F4F4F]">
                             <AccordionTrigger className="text-lg font-semibold font-secondary">
@@ -462,7 +611,7 @@ export default function Home() {
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
-                </div>
+                </motion.div>
             </section>
 
             <GetStarted/>

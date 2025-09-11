@@ -180,6 +180,7 @@ function TabsTrigger({
                 ref={ localRef }
                 data-slot="tabs-trigger"
                 role="tab"
+                aria-selected={activeValue === value}
                 whileTap={ { scale: 0.95 } }
                 onClick={ () => handleValueChange(value) }
                 data-state={ activeValue === value ? 'active' : 'inactive' }
@@ -214,6 +215,9 @@ function TabsContents({ children, className }: TabsContentsProps) {
 
                 return (
                     <motion.div
+                        id={`panel-${value}`}
+                        role="tabpanel"
+                        aria-labelledby={`tab-${value}`}
                         key={value}
                         initial={{ opacity: 0, y: 10, scale: 0.98 }}
                         animate={{
@@ -257,6 +261,7 @@ function TabsContent({
     return (
         <motion.div
             role="tabpanel"
+            aria-labelledby={`tab-${value}`}
             data-slot="tabs-content"
             className={ cn('overflow-hidden', className) }
             initial={ { filter: 'blur(0px)' } }

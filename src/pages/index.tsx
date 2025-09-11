@@ -49,7 +49,7 @@ export default function Home() {
                         </p>
 
                         <div className="btn-container">
-                            <Button variant="outline">
+                            <Button variant="outline" className="min-h-[44px] min-w-[120px] px-4 py-2">
                                 <Link href={ CONFIG.links.dashboard } target={ "_blank" }
                                       className={ "h-full w-full flex items-center justify-center" }>
                                     Start Free
@@ -96,9 +96,9 @@ export default function Home() {
                         className="w-full sm:w-auto h-auto"
                     />
                     <div className="mt-2">
-                        <h3 className="font-semibold text-2xl sm:text-4xl mb-5">
+                        <h2 className="font-semibold text-2xl sm:text-4xl mb-5">
                             Seamless Deep Linking for Universal Compatibility
-                        </h3>
+                        </h2>
 
                         {/* bullet points */ }
                         { [
@@ -156,7 +156,7 @@ export default function Home() {
                                     <Image
                                         src={ `/images/home/marquee/${ icon }.webp` }
                                         height="40"
-                                        width="40"
+                                        width="40" className="w-auto"
                                         alt={ icon }
                                     />
                                 </MarqueeItem>

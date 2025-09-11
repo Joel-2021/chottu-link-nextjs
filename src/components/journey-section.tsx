@@ -13,13 +13,13 @@ export default function JourneySection() {
                     <TabsList activeClassName="border-white border-b-3 rounded-none"
                               className="w-full inline-flex gap-2 p-4 rounded-4xl bg-transparent relative h-auto md:h-25">
                         <div className="absolute h-[1px] bg-tertiary w-full bottom-[17px] left-0 right-0"></div>
-                        { journeys.map((feature, i) => (
+                        { journeys.map((journey, i) => (
                             <TabsTrigger
-                                key={ i }
+                                key={ i } aria-label={journey.title}
                                 value={ String(i) }
                                 className="shrink-0 min-w-[140px] font-secondary text-tertiary text-sm md:text-base sm:text-lg lg:text-xl"
                             >
-                                { feature.title }
+                                { journey.title }
                             </TabsTrigger>
                         )) }
                     </TabsList>

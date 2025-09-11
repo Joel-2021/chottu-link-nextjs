@@ -20,7 +20,7 @@ export default function FeaturesSection() {
                               className="md:w-[95%] w-full mx-auto  bg-card inline-flex gap-2 md:p-4 p-3 rounded-4xl relative h-20 md:h-25">
 
                         { features.map((feature, i) => (
-                            <TabsTrigger key={ i }
+                            <TabsTrigger key={ i } aria-label={feature.title}
                                          value={ String(i) }
                                          className="grow w-fit rounded-3xl font-secondary text-foreground px-5 text-sm md:text-base sm:text-lg lg:text-xl
                data-[state=active]:text-[#8F73FF] data-[state=active]:font-bold data-[state=active]:font-primary">
@@ -36,7 +36,7 @@ export default function FeaturesSection() {
                     { features.map((feature, i) => (
                         <TabsContent value={ String(i) } className="bg-[#684FCE] rounded-3xl p-2 md:p-8" key={ i }>
                             <div className="flex gap-6 md:flex-row  flex-col-reverse items-center justify-between text-start p-8">
-                                <div className="w-1/2">
+                                <div className="md:w-1/2 w-full">
                                     <h6 className="text-3xl font-semibold mb-3">
                                         { feature.heading }
                                     </h6>

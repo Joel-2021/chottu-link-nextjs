@@ -99,10 +99,11 @@ export default function Home() {
                         viewport={ { once: true } }
                     >
                         <Image
-                            src="/images/home/section1.webp"
+                            src="/images/home/hero-img.webp"
                             height="506"
                             width="743"
                             priority
+                            sizes="(max-width: 768px) 100vw, 1200px"
                             alt="hero-section"
                         />
                     </motion.div>

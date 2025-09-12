@@ -135,10 +135,8 @@ export default function Header() {
                         <div className="hidden lg:block">
                             <ThemeToggle />
                         </div>
-                        <Button variant="default" size='lg' aria-label="Get Started">
-                            <Link href={ CONFIG.links.dashboard } target={ "_blank" }>
+                        <Button variant="default" size='lg' aria-label="Get Started" onClick={ () => window.open(CONFIG.links.dashboard, "_blank") }>
                                 Get Started
-                            </Link>
                         </Button>
                     </div>
                 </div>

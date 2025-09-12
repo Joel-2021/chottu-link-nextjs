@@ -1,13 +1,26 @@
-import FeaturesSection from "@/components/features-section";
-import GetStarted from "@/components/get-started";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
-import JourneySection from "@/components/journey-section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/config";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/ui/shadcn-io/marquee";
 import { motion } from "motion/react"
+
+const JourneySection = dynamic(() => import("../components/journey-section"), {
+    ssr: true,
+    loading: () => <p>Loading...</p>,
+})
+
+const FeaturesSection = dynamic(() => import("../components/features-section"), {
+    ssr: true,
+    loading: () => <p>Loading...</p>,
+})
+
+const GetStarted = dynamic(() => import("../components/get-started"), {
+    ssr: true,
+    loading: () => <p>Loading...</p>,
+})
 
 export default function Home() {
     const title = 'Deep Linking Done Right | Firebase Dynamic Links Alternative';

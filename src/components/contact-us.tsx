@@ -147,9 +147,11 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
                             ) }
                         />
 
-                        <Button type="submit" className="w-1/2 items-center">
-                            Submit
-                        </Button>
+                        <div className="flex justify-center">
+                            <Button type="submit" className="w-1/2">
+                                Submit
+                            </Button>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

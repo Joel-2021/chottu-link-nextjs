@@ -65,6 +65,9 @@ export default function Header() {
                 </Link>
 
                 {/* Mobile toggle button */ }
+                <div className="lg:hidden block ml-auto">
+                    <ThemeToggle />
+                </div>
                 <button
                     type="button"
                     onClick={ () => setIsOpen(!isOpen) }
@@ -129,10 +132,9 @@ export default function Header() {
 
                     {/* CTA Button */ }
                     <div className="flex items-center z-40 gap-x-4 justify-around btn-container mt-4 lg:mt-0">
-                        <div className="smnone">
-
+                        <div className="hidden lg:block">
+                            <ThemeToggle />
                         </div>
-                        <ThemeToggle/>
                         <Button variant="default" size='lg' aria-label="Get Started">
                             <Link href={ CONFIG.links.dashboard } target={ "_blank" }>
                                 Get Started

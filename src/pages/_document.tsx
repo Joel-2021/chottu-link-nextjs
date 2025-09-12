@@ -4,7 +4,6 @@ export default function Document() {
     return (
         <Html lang="en" className="scroll-smooth">
             <Head>
-                <title>Chottu Link</title>
                 <meta property="og:title" content="Deep Linking Done Right | Firebase Dynamic Links Alternative"/>
                 <meta property="og:description"
                       content="Create seamless deep links with Chottulink, a Firebase Dynamic Links alternative for Android, iOS, and Flutter apps."/>

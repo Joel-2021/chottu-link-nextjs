@@ -40,7 +40,7 @@ export default function FeaturesSection() {
                                 aria-label={feature.title}
                                 value={String(i)}
                                 className="grow w-fit rounded-3xl font-quicksand text-foreground px-5 text-sm md:text-base sm:text-lg lg:text-xl
-                  dark:data-[state=active]:text-brand data-[state=active]:font-bold data-[state=active]:font-poppins data-[state=active]:text-card-foreground"
+                                             data-[state=active]:font-bold data-[state=active]:font-poppins data-[state=active]:text-[var(--active-feature-text)]"
                             >
                                 {feature.title}
                             </TabsTrigger>

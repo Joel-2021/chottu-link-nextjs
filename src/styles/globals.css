@@ -45,6 +45,7 @@
     --journey-gradient: linear-gradient(0deg, #00658E 0%, #00658E 100%);
     --active-feature-tab: var(--brand);
     --active-journey-tab: var(--brand);
+    --active-feature-text: var(--background);
 }
 
 @theme inline {
@@ -138,6 +139,7 @@
     --journey-gradient: linear-gradient(to bottom, #001219, #002635);
     --active-feature-tab: var(--background);
     --active-journey-tab: var(--foreground);
+    --active-feature-text: #8F73FF;
 }
 
 @layer base {

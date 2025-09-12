@@ -100,9 +100,9 @@ export default function Home() {
                     >
                         <Image
                             src="/images/home/hero-img.webp"
-                            height="506"
-                            width="743"
-                            priority
+                            height="484"
+                            width="768"
+                            priority={true}
                             sizes="(max-width: 768px) 100vw, 1200px"
                             alt="hero-section"
                         />

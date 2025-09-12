@@ -1,7 +1,4 @@
-// import ContactDialog from "@/components/contact-us";
 import GetStarted from "@/components/get-started";
-// import PricingSlider from "@/components/pricing-slider";
-import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/config";
 import { SubscriptionPlan } from "@/models/subscription-plans";
 import fs from "fs";

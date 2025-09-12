@@ -103,7 +103,6 @@ export default function Home() {
                             height="484"
                             width="768"
                             priority={true}
-                            sizes="(max-width: 768px) 100vw, 1200px"
                             alt="hero-section"
                         />
                     </motion.div>

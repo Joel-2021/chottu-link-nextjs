@@ -162,7 +162,6 @@ export default function Home() {
                                 Seamless Deep Linking for Universal Compatibility
                             </h2>
 
-                            {/* Bullet points with staggered animation */ }
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
@@ -216,11 +215,11 @@ export default function Home() {
 
 
                     <motion.div
-                        // className="mt-8"
-                        // initial={ { opacity: 0, scale: 0.95 } }
-                        // whileInView={ { opacity: 1, scale: 1 } }
-                        // transition={ { duration: 0.8, ease: "easeOut" } }
-                        // viewport={ { once: true, amount: 0.2 } }
+                        className="mt-8"
+                        initial={ { opacity: 0, scale: 0.95 } }
+                        whileInView={ { opacity: 1, scale: 1 } }
+                        transition={ { duration: 0.8, ease: "easeOut" } }
+                        viewport={ { once: true, amount: 0.2 } }
                     >
                         <Marquee className="py-3">
                             <MarqueeFade side="left" className="bg-gradient-to-r from-[#002635] to-transparent"/>
@@ -260,7 +259,6 @@ export default function Home() {
             <section className="bg-[linear-gradient(180deg,#002635_0%,#010F15_100%)] py-16 scroll-mt-24 px-4">
                 <div className="max-w-1400 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
-                    {/* Left Column */ }
                     <motion.div
                         className="w-full max-w-xl mx-auto text-center md:text-left"
                         initial={ { opacity: 0, x: -50 } }
@@ -300,7 +298,6 @@ export default function Home() {
                         </div>
                     </motion.div>
 
-                    {/* Right Column */ }
                     <motion.div
                         className="w-full"
                         initial={ { opacity: 0, scale: 0.95 } }
@@ -313,7 +310,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 2 */ }
             <section className="bg-black py-16 scroll-mt-24 px-4">
                 <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
                     <motion.div
@@ -461,7 +457,7 @@ export default function Home() {
                     </motion.p>
 
                     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 pb-10">
-                        { [
+                        {[
                             {
                                 img: "/images/home/steps/step1.webp",
                                 title: "Step 1",
@@ -479,22 +475,47 @@ export default function Home() {
                             },
                             { img: "/images/home/steps/step4.webp", title: "Step 4", desc: "Validate & Test" },
                             { img: "/images/home/steps/step5.webp", title: "Step 5", desc: "Go Live Instantly" },
-                        ].map((step, i) => (
-                            <motion.div
-                                key={ i }
-                                className="flex flex-col items-center text-center"
-                                initial={ { opacity: 0, y: 40 } }
-                                whileInView={ { opacity: 1, y: 0 } }
-                                viewport={ { once: true } }
-                                transition={ { duration: 0.6, delay: 0.2 * i } }
-                            >
-                                <Image src={ step.img } alt={ step.title } className="mb-3 w-20 h-20" height={ 91 }
-                                       width={ 91 }/>
-                                <h6 className="text-lg font-semibold">{ step.title }</h6>
-                                <p className="text-base" dangerouslySetInnerHTML={ { __html: step.desc } }/>
-                            </motion.div>
-                        )) }
-                        {/* Arrows between steps could remain static */ }
+                        ].map((step, i, arr) => (
+                            <div key={i} className="flex items-center">
+                                <motion.div
+                                    className="flex flex-col items-center text-center"
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2 * i }}
+                                >
+                                    <Image
+                                        src={step.img}
+                                        alt={step.title}
+                                        className="mb-3 w-20 h-20"
+                                        height={91}
+                                        width={91}
+                                    />
+                                    <h6 className="text-lg font-semibold">{step.title}</h6>
+                                    <p
+                                        className="text-base"
+                                        dangerouslySetInnerHTML={{ __html: step.desc }}
+                                    />
+                                </motion.div>
+
+                                {i < arr.length - 1 && (
+                                    <motion.div
+                                        className="hidden sm:block"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6, delay: 0.2 * i + 0.1 }}
+                                    >
+                                        <Image
+                                            src="/images/home/arrow.webp"
+                                            alt="arrow"
+                                            height={12}
+                                            width={87}
+                                        />
+                                    </motion.div>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

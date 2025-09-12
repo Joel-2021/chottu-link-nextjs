@@ -86,40 +86,41 @@ export default function Header() {
                         className="font-medium text-center flex flex-col p-4 lg:p-0 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0"
                     >
                         <li>
-                            <Link href="/#home"
+                            <Link href="/#home" onClick={ () => setIsOpen(false) }
                                   className={ `${ (activePath === '/' || activePath === '/#home') ? "active-link" : "" } block py-2 px-3 lg:p-0` }>
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#why-chottulink"
+                            <Link href="/#why-chottulink" onClick={ () => setIsOpen(false) }
                                   className={ `${ (activePath === '/#why-chottulink') ? "active-link" : "" } block py-2 px-3 lg:p-0` }>
                                 Why Chottulink
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#features"
+                            <Link href="/#features" onClick={ () => setIsOpen(false) }
                                   className={ `${ (activePath === '/#features') ? "active-link" : "" } block py-2 px-3 lg:p-0` }>
                                 Features
                             </Link>
                         </li>
                         <li>
-                            <Link href="/about-us" prefetch
+                            <Link href="/about-us" onClick={ () => setIsOpen(false) } prefetch
                                   className={ `${ (activePath === '/about-us') ? "active-link" : "" } block py-2 px-3 lg:p-0` }>
                                 About Us
                             </Link>
                         </li>
                         <li>
-                            <Link href={ CONFIG.links.docs } target="_blank">Developer Guide</Link>
+                            <Link href={ CONFIG.links.docs } target="_blank"
+                                  className="block py-2 px-3 lg:p-0">Developer Guide</Link>
                         </li>
                         <li>
-                            <Link href="/pricing" prefetch
+                            <Link href="/pricing" onClick={ () => setIsOpen(false) } prefetch
                                   className={ `${ (activePath === '/pricing') ? "active-link" : "" } block py-2 px-3 lg:p-0` }>
                                 Pricing
                             </Link>
                         </li>
                         <li>
-                            <Link href="/blog" className="block py-2 px-3 lg:p-0">
+                            <Link href="/blog" onClick={ () => setIsOpen(false) } className="block py-2 px-3 lg:p-0">
                                 Blogs
                             </Link>
                         </li>

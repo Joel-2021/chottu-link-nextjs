@@ -1,4 +1,3 @@
-import { Meta } from "next/dist/lib/metadata/generate/meta";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {

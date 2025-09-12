@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/config";
 import { useRouter } from "next/router";
@@ -48,7 +49,7 @@ export default function Header() {
 
 
     return (
-        <nav className="top-0 z-[110] fixed bg-background bg-opacity-0 w-full">
+        <nav className="top-0 z-[110] fixed bg-background/80 backdrop-blur-md bg-opacity-0 w-full">
             <div
                 className="max-w-1400 flex flex-wrap lg:flex-nowrap items-center mx-auto py-4 justify-between lg:justify-normal lg:gap-x-10 w-full px-4">
 
@@ -59,7 +60,7 @@ export default function Header() {
                         alt="Chottu Link Logo"
                         height={ 32 }
                         width={ 135 }
-                        className="h-8 w-auto"
+                        className="h-8 w-auto dark:invert-0 invert"
                     />
                 </Link>
 
@@ -128,6 +129,10 @@ export default function Header() {
 
                     {/* CTA Button */ }
                     <div className="flex items-center z-40 gap-x-4 justify-around btn-container mt-4 lg:mt-0">
+                        <div className="smnone">
+
+                        </div>
+                        <ThemeToggle/>
                         <Button variant="default" size='lg' aria-label="Get Started">
                             <Link href={ CONFIG.links.dashboard } target={ "_blank" }>
                                 Get Started

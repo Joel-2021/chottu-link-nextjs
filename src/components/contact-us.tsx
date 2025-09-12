@@ -65,7 +65,12 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
     }
 
     return (
-        <Dialog open={ open } onOpenChange={ setOpen }>
+        <Dialog open={ open } onOpenChange={(value) => {
+            setOpen(value)
+            if (!value) {
+                form.reset()
+            }
+        }}>
             {/*<DialogTrigger asChild>*/ }
             {/*    <button className="w-full bg-[#abc7ff] p-2 cursor-pointer font-bold text-background rounded-3xl">*/ }
             {/*        Contact Sales*/ }
@@ -96,7 +101,7 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
                             name="name"
                             render={ ({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Name *</FormLabel>
+                                    <FormLabel className="text-card-foreground">Name *</FormLabel>
                                     <FormControl>
                                         <Input placeholder="John Doe" maxLength={ 60 } { ...field } className="bg-transparent border border-gray-300 text-white
                                                        placeholder-gray-400 rounded-md px-4 py-2
@@ -113,7 +118,7 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
                             name="email"
                             render={ ({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email Address *</FormLabel>
+                                    <FormLabel className="text-card-foreground">Email Address *</FormLabel>
                                     <FormControl>
                                         <Input type="email" placeholder="john@example.com" maxLength={ 60 } className="bg-transparent border border-gray-300 text-white
                                                        placeholder-gray-400 rounded-md px-4 py-2
@@ -130,7 +135,7 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
                             name="phone"
                             render={ ({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Company Phone Number *</FormLabel>
+                                    <FormLabel className="text-card-foreground">Company Phone Number *</FormLabel>
                                     <FormControl>
                                         <Input type="tel" placeholder="+1 123 456 7890" maxLength={ 15 } { ...field }
                                                className="bg-transparent border border-gray-300 text-white
@@ -142,7 +147,7 @@ export default function ContactDialog({ open, setOpen }: ContactDialogProps) {
                             ) }
                         />
 
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-1/2 items-center">
                             Submit
                         </Button>
                     </form>

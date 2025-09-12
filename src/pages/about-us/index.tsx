@@ -6,7 +6,7 @@ import { easeIn, motion } from "motion/react";
 import { useState } from "react";
 
 export default function Pricing() {
-    const [open, setOpen] = useState(false);
+    const [ open, setOpen ] = useState(false);
     const title = 'ChottuLink - About Us | Why We Built Chottulink';
     const metaDesctiption = 'Learn why we built ChottuLink and meet the founders behind the Firebase Dynamic Links alternative. Discover our mission and vision.';
 
@@ -49,14 +49,19 @@ export default function Pricing() {
                     className="text-center max-w-[960px] mx-auto"
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
-                    variants={container}
+                    viewport={ { once: true } }
+                    variants={ container }
                 >
-                    <motion.h1 className="text-3xl sm:text-5xl font-bold mb-6" variants={fadeUp}>
+                    <motion.h1 className="text-3xl sm:text-5xl font-bold mb-6" variants={ fadeUp }>
                         Why We Built Chottulink?
                     </motion.h1>
-                    <motion.p className="text-lg font-normal" variants={fadeUp}>
-                        Chottulink.com was born out of necessity when Firebase Dynamic Links announced its sunset. As developers and digital creators who relied on Firebase&#39;s powerful deep linking capabilities, we felt the urgent need for a seamless, reliable, and customizable alternative. What began as a solution for our own needs quickly grew into a full-fledged platform designed to serve others facing the same transition. Chottulink is built with simplicity, speed, and flexibility in mind—empowering creators, businesses, and developers to build smart links without compromise.
+                    <motion.p className="text-lg font-normal text-muted" variants={ fadeUp }>
+                        Chottulink.com was born out of necessity when Firebase Dynamic Links announced its sunset. As
+                        developers and digital creators who relied on Firebase&#39;s powerful deep linking capabilities,
+                        we felt the urgent need for a seamless, reliable, and customizable alternative. What began as a
+                        solution for our own needs quickly grew into a full-fledged platform designed to serve others
+                        facing the same transition. Chottulink is built with simplicity, speed, and flexibility in
+                        mind—empowering creators, businesses, and developers to build smart links without compromise.
                     </motion.p>
                 </motion.div>
 
@@ -64,15 +69,16 @@ export default function Pricing() {
                     className="text-center mt-15 sm:mt-20"
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
-                    variants={container}
+                    viewport={ { once: true } }
+                    variants={ container }
                 >
-                    <motion.h2 className="font-bold text-3xl sm:text-5xl mb-6" variants={fadeUp}>
+                    <motion.h2 className="font-bold text-3xl sm:text-5xl mb-6" variants={ fadeUp }>
                         Founders
                     </motion.h2>
 
-                    <motion.div className="flex justify-center items-stretch flex-col sm:flex-row gap-5" variants={container}>
-                        {[
+                    <motion.div className="flex justify-center items-stretch flex-col sm:flex-row gap-5"
+                                variants={ container }>
+                        { [
                             {
                                 name: "Mayank Nakrani",
                                 image: "/images/mayank-nakrani-linkedin-profile.png",
@@ -89,60 +95,86 @@ export default function Pricing() {
                             },
                         ].map((founder, idx) => (
                             <motion.div
-                                key={idx}
-                                className="flex justify-center items-center flex-col rounded-xl border border-gray-800 p-8 text-center max-w-[400px] bg-background"
-                                variants={fadeUp}
+                                key={ idx }
+                                className="flex justify-center items-center flex-col rounded-xl border border-table p-8 text-center max-w-[400px] bg-transparent"
+                                variants={ fadeUp }
                             >
-                                <div className="rounded-full border border-[#001d29] border-[14px] h-[200px] w-[200px] bg-[#003951] flex items-center justify-center overflow-hidden">
-                                    <Image src={founder.image} height={500} width={500} alt={founder.name} className="object-cover h-full w-full" />
+                                <div
+                                    className="rounded-full border border-card border-[14px] h-[200px] w-[200px] bg-[#003951] flex items-center justify-center overflow-hidden">
+                                    <Image src={ founder.image } height={ 500 } width={ 500 } alt={ founder.name }
+                                           className="object-cover h-full w-full"/>
                                 </div>
 
                                 <div className="rounded-2xl mt-4 p-2 w-full">
-                                    <h6 className="font-light text-2xl">{founder.name}</h6>
+                                    <h6 className="font-light text-2xl">{ founder.name }</h6>
                                 </div>
-                                <p className="text-lg mt-3">{founder.description}</p>
+                                <p className="text-lg mt-3 text-muted-foreground">{ founder.description }</p>
 
                                 <a
-                                    className="rounded-full border border-gray-800 py-2 px-4 w-fit mt-3"
-                                    href={founder.linkedin}
+                                    className="rounded-full border border-table py-2 px-4 w-fit mt-3"
+                                    href={ founder.linkedin }
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image src="/icons/linkedin.svg" height={24} width={24} alt="linkedin" />
+                                    <Image src="/icons/linkedin.svg" height={ 24 } width={ 24 } alt="linkedin"/>
                                 </a>
                             </motion.div>
-                        ))}
+                        )) }
                     </motion.div>
                 </motion.div>
 
                 <motion.div
-                    className="rounded-xl bg-[#001d29] w-full p-8 flex mt-15 gap-6 items-center justify-center sm:flex-row flex-col"
+                    className="rounded-xl bg-card w-full p-8 flex mt-15 gap-6 items-center justify-center sm:flex-row flex-col"
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
-                    variants={container}
+                    viewport={ { once: true } }
+                    variants={ container }
                 >
-                    <motion.div className="flex flex-col gap-3 sm:w-[70%] w-full" variants={fadeUp}>
+                    <motion.div className="flex flex-col gap-3 sm:w-[70%] w-full" variants={ fadeUp }>
                         <h3 className="text-3xl sm:text-5xl font-bold">Tavas Analytics</h3>
                         <p className="text-lg">
-                            Chottulink is a product of Tavas Analytics, which was founded with a clear mission: to revolutionize how businesses understand and engage with their customers. Launched in 2022 by a team of seasoned technologists and industry experts, Tavas emerged at the intersection of data, AI, and customer experience. Recognizing the limitations of traditional analytics tools, the founders envisioned a platform that could deliver real-time, AI-powered insights across every customer touchpoint—from digital to physical.
+                            Chottulink is a product of Tavas Analytics, which was founded with a clear mission: to
+                            revolutionize how businesses understand and engage with their customers. Launched in 2022 by
+                            a team of seasoned technologists and industry experts, Tavas emerged at the intersection of
+                            data, AI, and customer experience. Recognizing the limitations of traditional analytics
+                            tools, the founders envisioned a platform that could deliver real-time, AI-powered insights
+                            across every customer touchpoint—from digital to physical.
                         </p>
 
-                        <Button variant="default" onClick={()=> setOpen(true)}>Visit Tavas</Button>
+                        <Button variant="default" onClick={ () => setOpen(true) }>Visit Tavas</Button>
                     </motion.div>
 
-                    <motion.div className="my-auto" variants={fadeUp}>
-                        {[
+                    <motion.div className="my-auto" variants={ fadeUp }>
+                        { [
                             "Multiple apps with 5M MAU",
                             "20M+ Events daily",
                             "Ultra Light weight Android, ios and Web SDK",
                             "GDPR Compliant",
                         ].map((item, idx) => (
-                            <div key={idx} className="flex gap-2 my-1">
-                                <Image src="/icons/star.svg" height={24} width={24} alt="star" />
-                                {item}
+                            <div key={ idx } className="flex gap-2 my-1">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="text-foreground"
+                                >
+                                    <g clipPath="url(#clip0_398_13)">
+                                        <path
+                                            d="M12.3174 1.29272L9.39723 9.07985L1.61011 12L9.39723 14.9202L12.3174 22.7073L15.2376 14.9202L23.0247 12L15.2376 9.07985L12.3174 1.29272Z"
+                                            fill="currentColor"
+                                        />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_398_13">
+                                            <rect width="23.3614" height="23.3614" fill="white" transform="translate(0.636719 0.319336)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                { item }
                             </div>
-                        ))}
+                        )) }
                     </motion.div>
                 </motion.div>
 
@@ -181,7 +213,7 @@ export default function Pricing() {
                 {/*    </div>*/ }
                 {/*</div></div>*/ }
             </section>
-            <ContactDialog open={open} setOpen={setOpen} />
+            <ContactDialog open={ open } setOpen={ setOpen }/>
         </>
     );
 }

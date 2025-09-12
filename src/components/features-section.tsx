@@ -31,7 +31,7 @@ export default function FeaturesSection() {
             <Tabs defaultValue="0" className="">
                 <ScrollArea className="w-full whitespace-nowrap">
                     <TabsList
-                        activeClassName="rounded-3xl"
+                        activeClassName="rounded-3xl bg-[var(--active-feature-tab)]"
                         className="md:w-[95%] w-full mx-auto bg-card inline-flex gap-2 md:p-4 p-3 rounded-4xl relative h-20 md:h-25"
                     >
                         {features.map((feature, i) => (
@@ -39,8 +39,8 @@ export default function FeaturesSection() {
                                 key={i}
                                 aria-label={feature.title}
                                 value={String(i)}
-                                className="grow w-fit rounded-3xl font-secondary text-foreground px-5 text-sm md:text-base sm:text-lg lg:text-xl
-                  data-[state=active]:text-[#8F73FF] data-[state=active]:font-bold data-[state=active]:font-primary"
+                                className="grow w-fit rounded-3xl font-quicksand text-foreground px-5 text-sm md:text-base sm:text-lg lg:text-xl
+                  dark:data-[state=active]:text-brand data-[state=active]:font-bold data-[state=active]:font-poppins data-[state=active]:text-card-foreground"
                             >
                                 {feature.title}
                             </TabsTrigger>
@@ -54,11 +54,11 @@ export default function FeaturesSection() {
                     {features.map((feature, i) => (
                         <TabsContent
                             value={String(i)}
-                            className="bg-[#684FCE] rounded-3xl p-2 md:p-8"
+                            className="bg-brand rounded-3xl p-2 md:p-8"
                             key={i}
                         >
                             <motion.div
-                                className="flex gap-6 md:flex-row flex-col-reverse items-center justify-between text-start p-8"
+                                className="flex gap-6 md:flex-row flex-col-reverse items-center justify-between text-start p-8 text-card-foreground"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -66,7 +66,7 @@ export default function FeaturesSection() {
                             >
                                 <div className="md:w-1/2 w-full">
                                     <h6 className="text-3xl font-semibold mb-3">{feature.heading}</h6>
-                                    <p className="font-secondary text-lg">{feature.description}</p>
+                                    <p className="font-quicksand text-lg">{feature.description}</p>
                                 </div>
                                 <Image
                                     src={feature.image}

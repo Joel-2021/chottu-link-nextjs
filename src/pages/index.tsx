@@ -71,7 +71,7 @@ export default function Home() {
                             viewport={ { once: true } }
                         >
                             <Button
-                                variant="outline"
+                                variant="outline" className="text-foreground"
                                 onClick={ () => window.open(CONFIG.links.dashboard, "_blank") }
                             >
                                 Start Free
@@ -89,7 +89,7 @@ export default function Home() {
                             src="/images/home/section1.webp"
                             height="506"
                             width="743"
-                            priority={ true }
+                            priority
                             alt="hero-section"
                         />
                     </motion.div>
@@ -131,9 +131,9 @@ export default function Home() {
             </section>
 
             <section id="why-chottulink" className="mt-16 px-4 scroll-mt-30">
-                <div className="max-w-1400 bg-[#002635] sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25"
+                <div className="max-w-1400 bg-primary sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25"
                 >
-                    <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center">
+                    <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center text-card-foreground">
                         <motion.div
                             initial={ { opacity: 0, x: -60 } }
                             whileInView={ { opacity: 1, x: 0 } }
@@ -204,7 +204,7 @@ export default function Home() {
                                         />
                                         <div>
                                             <h4 className="font-bold text-lg sm:text-xl mb-1">{ title }</h4>
-                                            <p className="font-secondary text-base sm:text-lg">{ text }</p>
+                                            <p className="font-quicksand text-base sm:text-lg">{ text }</p>
                                         </div>
                                     </motion.div>
                                 )) }
@@ -221,9 +221,9 @@ export default function Home() {
                         viewport={ { once: true, amount: 0.2 } }
                     >
                         <Marquee className="py-3">
-                            <MarqueeFade side="left" className="bg-gradient-to-r from-[#002635] to-transparent"/>
-                            <MarqueeFade side="right" className="bg-gradient-to-l from-[#002635] to-transparent"/>
-                            <MarqueeContent className="bg-[#002635]">
+                            <MarqueeFade side="left" className="bg-gradient-to-r from-primary to-transparent"/>
+                            <MarqueeFade side="right" className="bg-gradient-to-l from-primary to-transparent"/>
+                            <MarqueeContent className="bg-primary">
                                 { [
                                     "android",
                                     "twitter",
@@ -255,7 +255,7 @@ export default function Home() {
             <JourneySection/>
             <FeaturesSection/>
 
-            <section className="bg-[linear-gradient(180deg,#002635_0%,#010F15_100%)] py-16 scroll-mt-24 px-4">
+            <section className="bg-[image:var(--gradient1)] py-16 scroll-mt-24 px-4">
                 <div className="max-w-1400 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                     <motion.div
@@ -268,7 +268,7 @@ export default function Home() {
                         <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
                             Discover Campaign Success with Powerful Analytics
                         </h3>
-                        <p className="text-base md:text-lg font-medium font-secondary">
+                        <p className="text-base md:text-lg font-medium font-quicksand">
                             ChottuLink gives you full control over your campaigns with smart tracking and actionable
                             insights. From the first click to the final in-app action, get the complete picture of how
                             your audience engages with your brand.
@@ -289,7 +289,7 @@ export default function Home() {
                                         height="20"
                                         width="20"
                                         alt="pointer"
-                                        className="h-[15px] w-[15px]"
+                                        className="h-[15px] w-[15px] dark:invert-0 invert"
                                     />
                                     { item }
                                 </motion.p>
@@ -304,12 +304,12 @@ export default function Home() {
                         viewport={ { once: true, amount: 0.3 } }
                         transition={ { duration: 0.7, ease: "easeOut" } }
                     >
-                        <Image src="/images/home/graph.webp" height={ 614 } width={ 714 } priority/>
+                        <Image src="/images/home/graph.webp" height={ 614 } width={ 714 } priority alt="graph"/>
                     </motion.div>
                 </div>
             </section>
 
-            <section className="bg-black py-16 scroll-mt-24 px-4">
+            <section className="bg-card scroll-mt-24 px-4">
                 <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
                     <motion.div
                         initial={ { opacity: 0, y: 50 } }
@@ -336,7 +336,7 @@ export default function Home() {
                         <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
                             Convert, Retain, and Grow with ChottuLink
                         </h3>
-                        <p className="text-base md:text-lg font-medium font-secondary">
+                        <p className="text-base md:text-lg font-medium font-quicksand sm:pb-0 pb-12">
                             Many users drop off after their first interaction. Our advanced engagement tools
                             help you bring them back with tailored messaging and intelligent retargeting
                             strategies—ensuring a higher return on your marketing investments.
@@ -346,7 +346,7 @@ export default function Home() {
             </section>
 
             <section
-                className="bg-[linear-gradient(180deg,transparent_0%,#010F15_50%,#002635_100%)] text-center mx-auto px-4"
+                className="bg-transparent text-center mx-auto px-4"
             >
                 <div className="max-w-1400 mx-auto">
                     <motion.h2
@@ -359,7 +359,7 @@ export default function Home() {
                         Optimize Every Link <br/> Amplify Every Campaign
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
                         { [
                             {
                                 gradient: "bg-[linear-gradient(64deg,#BC2ED2_-126.24%,#001219_130.87%)]",
@@ -376,7 +376,7 @@ export default function Home() {
                         ].map((card, i) => (
                             <motion.div
                                 key={ i }
-                                className={ `rounded-[18px] ${ card.gradient } text-start flex flex-col justify-center items-center text-lg` }
+                                className={ `rounded-[18px] ${ card.gradient } text-start flex flex-col text-card-foreground justify-center items-center text-lg` }
                                 initial={ { opacity: 0, y: 50 } }
                                 whileInView={ { opacity: 1, y: 0 } }
                                 viewport={ { once: true } }
@@ -394,7 +394,7 @@ export default function Home() {
                         )) }
 
                         <motion.div
-                            className="rounded-[18px] bg-[linear-gradient(28deg,#684FCE_0%,#41317E_100%)] text-start md:col-start-2 md:row-start-1 md:row-span-2"
+                            className="rounded-[18px] bg-[linear-gradient(28deg,#684FCE_0%,#41317E_100%)] text-start md:col-start-2 md:row-start-1 md:row-span-2 text-card-foreground"
                             initial={ { opacity: 0, x: 50 } }
                             whileInView={ { opacity: 1, x: 0 } }
                             viewport={ { once: true } }
@@ -431,10 +431,12 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
+            </section>
 
-                <div className="max-w-1400 mx-auto">
+            <section className="bg-[image:var(--gradient2)]">
+                <div className="max-w-1400 mx-auto text-center py-20">
                     <motion.h2
-                        className="mt-12 sm:mt-20 mb-4 flex justify-center text-2xl sm:text-4xl font-semibold"
+                        className="pb-4 flex justify-center text-2xl sm:text-4xl font-semibold"
                         initial={ { opacity: 0, y: 30 } }
                         whileInView={ { opacity: 1, y: 0 } }
                         viewport={ { once: true } }
@@ -443,7 +445,7 @@ export default function Home() {
                         Switch Seamlessly, Without <br/> A Single Line Of Code
                     </motion.h2>
                     <motion.p
-                        className="text-[20px] my-4 mb-8 [text-wrap:balance]"
+                        className="text-[20px] my-4 mb-10 max-w-[65%] mx-auto"
                         initial={ { opacity: 0 } }
                         whileInView={ { opacity: 1 } }
                         viewport={ { once: true } }
@@ -455,7 +457,7 @@ export default function Home() {
                         hassles.
                     </motion.p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 pb-10">
+                    <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12">
                         { [
                             {
                                 img: "/images/home/steps/step1.webp",
@@ -507,7 +509,7 @@ export default function Home() {
                                     >
                                         <Image
                                             src="/images/home/arrow.webp"
-                                            alt="arrow"
+                                            alt="arrow" className="invert dark:invert-0"
                                             height={ 12 }
                                             width={ 87 }
                                         />
@@ -531,16 +533,16 @@ export default function Home() {
                     </h2>
                     <div className="table-wrapper p-0 sm:p-3">
                         <table
-                            className="min-w-full border-separate border-spacing-0 bg-card border-b border-white/30 rounded-b-2xl overflow-hidden">
+                            className="min-w-full border-separate border-spacing-0 dark:bg-card border-b border-table-outline rounded-b-2xl overflow-hidden">
                             <thead>
                             <tr className="bg-gradient-to-r from-[#3369C5] to-[#F318FF] rounded-t-2xl">
-                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-primary rounded-tl-2xl">
+                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-poppins rounded-tl-2xl">
                                     Platform
                                 </th>
-                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-primary">
+                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-poppins">
                                     Pros
                                 </th>
-                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-primary rounded-tr-2xl">
+                                <th className="w-1/3 h-[60px] px-2 sm:px-4 text-center align-middle text-lg sm:text-xl font-bold text-white font-poppins rounded-tr-2xl">
                                     Cons
                                 </th>
                             </tr>
@@ -555,21 +557,21 @@ export default function Home() {
                                 <tr
                                     key={ platform }
                                     className={ `font-poppins font-medium ${
-                                        idx === 0 ? "font-bold bg-[var(--card-bg-primary)]" : "bg-[var(--app-bg-primary)]"
+                                        idx === 0 && "font-bold" 
                                     } border-t border-blue-600` }
                                 >
                                     <td
-                                        className={ `h-[60px] px-3 py-3 text-center align-middle text-base sm:text-lg border-r border-l border-l-white/30  border-[#003950] ${
+                                        className={ `h-[60px] px-3 py-3 text-center align-middle text-base sm:text-lg border-r border-l border-table-outline ${
                                             idx === arr.length - 1 ? "rounded-bl-2xl" : ""
                                         }` }
                                     >
                                         { platform }
                                     </td>
-                                    <td className="h-[60px] px-3 py-3 text-center align-middle text-base sm:text-lg border-r border-[#003950]">
+                                    <td className="h-[60px] px-3 py-3 text-center align-middle text-base sm:text-lg border-r border-table-outline">
                                         { pros }
                                     </td>
                                     <td
-                                        className={ `h-[60px] px-3 py-3 text-center align-middle text-base  border-r border-white sm:text-lg border-white/30 ${
+                                        className={ `h-[60px] px-3 py-3 text-center align-middle text-base  border-r sm:text-lg border-table-outline ${
                                             idx === arr.length - 1 ? "rounded-br-2xl" : ""
                                         }` }
                                     >
@@ -603,29 +605,29 @@ export default function Home() {
                 >
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1" className="border-b border-[#4F4F4F]">
-                            <AccordionTrigger className="text-lg font-semibold font-secondary">
+                            <AccordionTrigger className="text-lg font-semibold font-quicksand">
                                 What is your return policy?
                             </AccordionTrigger>
-                            <AccordionContent className="text-base font-quicksand text-tertiary">
+                            <AccordionContent className="text-base font-quicksand text-gray-400">
                                 We offer a 30-day return policy with a full refund, provided the product is in its
                                 original condition.
                             </AccordionContent>
                         </AccordionItem>
 
                         <AccordionItem value="item-2" className="border-b border-[#4F4F4F]">
-                            <AccordionTrigger className="text-lg font-semibold font-secondary">
+                            <AccordionTrigger className="text-lg font-semibold font-quicksand">
                                 How long does shipping take?
                             </AccordionTrigger>
-                            <AccordionContent className="text-base font-secondary text-tertiary">
+                            <AccordionContent className="text-base font-quicksand text-gray-400">
                                 Shipping usually takes 5–7 business days depending on your location.
                             </AccordionContent>
                         </AccordionItem>
 
                         <AccordionItem value="item-3" className="border-b border-[#4F4F4F]">
-                            <AccordionTrigger className="text-lg font-semibold font-secondary">
+                            <AccordionTrigger className="text-lg font-semibold font-quicksand">
                                 Do you offer international shipping?
                             </AccordionTrigger>
-                            <AccordionContent className="text-base font-quicksand text-tertiary">
+                            <AccordionContent className="text-base font-quicksand text-gray-400">
                                 Yes! We ship internationally, and delivery times vary depending on the destination
                                 country.
                             </AccordionContent>

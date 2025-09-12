@@ -23,15 +23,15 @@ export default function JourneySection() {
             <Tabs defaultValue={ String(0) } className="">
                 <ScrollArea className="w-full whitespace-nowrap">
                     <TabsList
-                        activeClassName="border-white border-b-3 rounded-none"
+                        activeClassName="border-[var(--active-journey-tab)] border-b-3 rounded-none"
                         className="w-full inline-flex gap-2 p-4 rounded-4xl bg-transparent relative h-auto md:h-25"
                     >
-                        <div className="absolute h-[1px] bg-tertiary w-full bottom-[17px] left-0 right-0"></div>
+                        <div className="absolute h-[1px] bg-muted w-full bottom-[17px] left-0 right-0"></div>
                         { journeys.map((journey, i) => (
                             <TabsTrigger
                                 key={ i }
                                 value={ String(i) }
-                                className="shrink-0 min-w-[140px] font-secondary text-tertiary text-sm md:text-base sm:text-lg lg:text-xl"
+                                className="shrink-0 min-w-[140px] font-quicksand text-muted text-sm md:text-base sm:text-lg lg:text-xl"
                             >
                                 { journey.title }
                             </TabsTrigger>
@@ -45,7 +45,7 @@ export default function JourneySection() {
                         <TabsContent
                             value={ String(i) }
                             key={ i }
-                            className="bg-gradient-to-b from-[#001219] to-[#002635] shadow px-2 md:px-8 md:pb-0 rounded-3xl"
+                            className="bg-[image:var(--journey-gradient)] shadow px-2 md:px-8 md:pb-0 rounded-3xl text-card-foreground"
                         >
                             <div className="flex gap-6 md:flex-row flex-col md:items-start items-center justify-between text-start p-0">
                                 {/* Text block */ }
@@ -60,7 +60,7 @@ export default function JourneySection() {
                                         { feature.heading }
                                     </h6>
                                     <p
-                                        className="font-secondary text-lg"
+                                        className="font-quicksand text-lg"
                                         dangerouslySetInnerHTML={ {
                                             __html: feature.description,
                                         } }

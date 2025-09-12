@@ -47,7 +47,7 @@ export default function PricingSlider() {
     }
 
     return (
-        <div className="p-4 rounded-2xl text-start sm:p-10 border-2 border-gray-400">
+        <div className="bg-card text-foreground p-4 rounded-2xl text-start sm:p-10 border-2 border-gray-400">
             <p className="sm:text-lg">How many monthly active users?
                 <Popover>
                     <PopoverTrigger><Image src="/icons/question.svg" width="18" height="18" alt="info"
@@ -72,27 +72,27 @@ export default function PricingSlider() {
                         className="absolute left-0 right-0 md:left-3 md:right-4 mt-2 text-xs mx-3 md:mx-0"
                         style={ { bottom: "-15px" } }
                     >
-                        <span className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[0%]">25k</span>
+                        <span className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[0%]">25k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[5.26%]">50k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[5.26%]">50k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[15.78%]">100k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[15.78%]">100k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[26.32%]">150k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[26.32%]">150k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[36.84%]">200k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[36.84%]">200k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[47.37%]">250k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[47.37%]">250k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[57.89%]">300k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[57.89%]">300k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[68.42%]">350k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[68.42%]">350k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[78.95%]">400k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[78.95%]">400k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[89.47%]">450k</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[89.47%]">450k</span>
                         <span
-                            className="absolute text-tertiary -translate-x-1/2 whitespace-nowrap left-[100%]">500k+</span>
+                            className="absolute text-muted -translate-x-1/2 whitespace-nowrap left-[100%]">500k+</span>
                     </div>
 
                 </div>
@@ -111,7 +111,7 @@ export default function PricingSlider() {
 
                 <div
                     className="sm:mt-2 w-max py-3 px-4 flex flex-col justify-center items-center border border-gray-800 rounded-xl w-[150px] bg-[#001D29]">
-                    <h6 className="text-lg font-medium text-tertiary">vs</h6>
+                    <h6 className="text-lg font-medium text-card-foreground">vs</h6>
                 </div>
 
                 <div className="text-center flex-1">
@@ -124,7 +124,7 @@ export default function PricingSlider() {
                 </div>
             </div>
 
-            <h6 className="mt-10 font-secondary text-tertiary">ChottuLink pricing doesn&#39;t
+            <h6 className="mt-10 font-quicksand text-muted">ChottuLink pricing doesn&#39;t
                 multiply
                 as your MAUs grow,
                 We ensure you never get a surprise bill.</h6>

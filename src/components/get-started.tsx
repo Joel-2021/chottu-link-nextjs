@@ -9,7 +9,7 @@ export default function GetStarted() {
                 viewport={ { once: true } }
                 transition={ { duration: 0.6 } }
             >
-                <div className="bg-[#684FCE] p-6 md:p-10 rounded-xl grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+                <div className="bg-brand text-primary-foreground p-6 md:p-10 rounded-xl grid grid-cols-1 md:grid-cols-2 items-center gap-8">
 
                     {/* Left Column */ }
                     <motion.div
@@ -43,7 +43,7 @@ export default function GetStarted() {
                                 <input
                                     type="email"
                                     placeholder="Enter Your Email Address"
-                                    className="flex-1 bg-[#684FCE] text-white placeholder-white outline-none px-4 w-3/4"
+                                    className="flex-1 bg-brand text-white placeholder-white outline-none px-4 w-3/4"
                                 />
                                 <button className="ml-2 bg-black rounded-full py-2 px-5 font-medium text-sm text-white">
                                     Request Demo

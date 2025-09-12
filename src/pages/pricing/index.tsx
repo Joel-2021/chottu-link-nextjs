@@ -1,4 +1,5 @@
 // import ContactDialog from "@/components/contact-us";
+import GetStarted from "@/components/get-started";
 // import PricingSlider from "@/components/pricing-slider";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/config";
@@ -55,7 +56,7 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                 <meta name="twitter:description" content={ metaDesctiption }/>
             </Head>
 
-            <div className="mx-auto min-h-screen max-w-7xl px-4">
+            <div className="mx-auto min-h-screen max-w-1400 px-4">
 
                 <section className="mt-10 mb-5 flex flex-col items-center text-center md:mt-20 md:mb-10">
                     <h1 className="text-3xl sm:text-5xl font-bold">Clear, Upfront Pricing</h1>
@@ -106,9 +107,8 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
 
                                 {/* Footer */ }
                                 <div className="card-footer">
-                                    <button className={ "w-full bg-[#abc7ff] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
+                                    <button className={ "w-full bg-[var(--buy-btn)] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
                                             onClick={() => window.open(CONFIG.links.pricing, "_blank")}>
-
                                             Get Started
                                     </button>
                                 </div>
@@ -148,7 +148,7 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
 
                             {/* Footer */ }
                             <div className="card-footer">
-                                <button className={ "w-full bg-[#abc7ff] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
+                                <button className={ "w-full bg-[var(--buy-btn)] p-2 cursor-pointer h-[45px] font-bold text-background rounded-3xl" }
                                         onClick={() => setOpen(true)}>
                                     Contact Us
                                 </button>
@@ -164,10 +164,10 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                         at &#64;150k MAUs
                     </h1>
 
-                    <div className="bg-[#001D29] p-2 rounded-2xl">
+                    <div className="bg-card p-2 rounded-2xl">
                         <div className="overflow-x-auto bg-background rounded-2xl p-1 sm:p-2">
                             <table className="min-w-full bg-background border-collapse rounded-2xl">
-                                <thead>
+                                <thead className="text-card-foreground">
                                 <tr className="bg-[linear-gradient(269.61deg,#3369c5_-8.08%,#f318ff_66.81%,#ff9d00_137.47%)] rounded-t-2xl">
                                     <th className="border-0 md:w-1/3 w-1/2 border-none bg-transparent font-poppins font-bold text-center align-middle whitespace-nowrap h-[60px] px-3 rounded-tl-2xl text-base md:text-xl">
                                         Platform
@@ -181,23 +181,23 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr className="font-poppins bg-[var(--card-bg-primary)] font-bold">
-                                    <td className="text-base px-4 bg-[#001D29] sm:text-lg text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                <tr className="font-poppins font-bold">
+                                    <td className="text-base px-4 bg-card sm:text-lg text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         ChottuLink
                                     </td>
-                                    <td className="text-base px-4 bg-[#001D29] sm:text-lg text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base px-4 bg-card sm:text-lg text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         $39/mo
                                     </td>
-                                    <td className="text-base px-4 bg-[#001D29] sm:text-lg text-center align-middle whitespace-nowrap h-[60px]">
+                                    <td className="text-base px-4 bg-card sm:text-lg text-center align-middle whitespace-nowrap h-[60px]">
                                         — (Baseline)
                                     </td>
                                 </tr>
 
-                                <tr className="font-poppins bg-[var(--app-bg-primary)]">
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                <tr className="font-poppins">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         Airbridge
                                     </td>
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         $420
                                     </td>
                                     <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] text-green-400">
@@ -205,11 +205,11 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                     </td>
                                 </tr>
 
-                                <tr className="font-poppins bg-[var(--app-bg-primary)]">
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                <tr className="font-poppins">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         Branch.io
                                     </td>
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         $700
                                     </td>
                                     <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] text-green-400">
@@ -218,10 +218,10 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 </tr>
 
                                 <tr className="font-poppins">
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         AppsFlyer
                                     </td>
-                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         ~$9,160
                                     </td>
                                     <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] text-green-400">
@@ -230,10 +230,10 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 </tr>
 
                                 <tr className="font-poppins">
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         Adjust
                                     </td>
-                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         ~$2,250 – $4,500
                                     </td>
                                     <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] text-green-400">
@@ -241,11 +241,11 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                     </td>
                                 </tr>
 
-                                <tr className="font-poppins bg-[var(--app-bg-primary)]">
-                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                <tr className="font-poppins">
+                                    <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         Kochava
                                     </td>
-                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-[#003950]">
+                                    <td className="text-base sm:text-lg  px-4 text-center align-middle whitespace-nowrap h-[60px] border-r border-table-outline">
                                         $2,500
                                     </td>
                                     <td className="text-base sm:text-lg px-4 text-center align-middle whitespace-nowrap h-[60px] text-green-400">
@@ -272,7 +272,7 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                     <div className="w-full">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                             <div className="feature-column">
-                                <ul className="space-y-4 text-tertiary">
+                                <ul className="space-y-4 text-muted">
                                     <li className="flex items-start justify-center">
                                         <span className="text-green-400 mr-2">✓</span>
                                         <span>Seamless Deep Linking for Universal Compatibility</span>
@@ -293,7 +293,7 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 </ul>
                             </div>
                             <div className="feature-column">
-                                <ul className="space-y-4 text-tertiary">
+                                <ul className="space-y-4 text-muted">
                                     <li className="flex items-start justify-center">
                                         <span className="text-green-400 mr-2">✓</span>
                                         <span>Deferred Deeplinking fully supported</span>
@@ -313,7 +313,7 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                                 </ul>
                             </div>
                             <div className="feature-column">
-                                <ul className="space-y-4 text-tertiary">
+                                <ul className="space-y-4 text-muted">
                                     <li className="flex items-start justify-center">
                                         <span className="text-green-400 mr-2">✓</span>
                                         <span>Rest APIs Support</span>
@@ -332,25 +332,26 @@ export default function Pricing({ subscriptionPackages }: { subscriptionPackages
                     </div>
                 </div>
 
-                <section className="mt-15 sm:mt-20">
-                    <div
-                        className="bg-[#000D12] p-6 md:p-10 rounded-lg md:columns-2 flex items-center flex-col md:flex-row justify-between text-center md:text-start gap-y-6">
-                        <div>
-                            <h2 className="text-xl sm:text-2xl font-semibold">Get Started with ChottuLink Today</h2>
-                            <p className="mt-4">Unlock the full potential of user engagement and retention. Create an
-                                account and get
-                                started</p>
-                        </div>
+                {/*<section className="mt-15 sm:mt-20">*/}
+                {/*    <div*/}
+                {/*        className="bg-[#000D12] p-6 md:p-10 rounded-lg md:columns-2 flex items-center flex-col md:flex-row justify-between text-center md:text-start gap-y-6">*/}
+                {/*        <div>*/}
+                {/*            <h2 className="text-xl sm:text-2xl font-semibold">Get Started with ChottuLink Today</h2>*/}
+                {/*            <p className="mt-4">Unlock the full potential of user engagement and retention. Create an*/}
+                {/*                account and get*/}
+                {/*                started</p>*/}
+                {/*        </div>*/}
 
-                        <Button
-                            variant="outline"
-                            onClick={() => window.open(CONFIG.links.dashboard, "_blank")}
-                        >
-                            Start Free
-                        </Button>
-                    </div>
-                </section>
+                {/*        <Button*/}
+                {/*            variant="outline" className="text-foreground"*/}
+                {/*            onClick={() => window.open(CONFIG.links.dashboard, "_blank")}*/}
+                {/*        >*/}
+                {/*            Start Free*/}
+                {/*        </Button>*/}
+                {/*    </div>*/}
+                {/*</section>*/}
             </div>
+            <GetStarted/>
         </>
     );
 }

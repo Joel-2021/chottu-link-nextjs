@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import JourneySection from "@/components/journey-section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { AreaChart } from "@/components/area-chart";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/config";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/ui/shadcn-io/marquee";
@@ -237,7 +236,7 @@ export default function Home() {
                                     "slack",
                                 ].map((icon, i) => (
                                     <MarqueeItem key={ i }
-                                        className="size-[60px] rounded-full bg-[#011E2B] flex items-center justify-center">
+                                                 className="size-[60px] rounded-full bg-[#011E2B] flex items-center justify-center">
                                         <Image
                                             src={ `/images/home/marquee/${ icon }.webp` }
                                             height="40"
@@ -305,7 +304,7 @@ export default function Home() {
                         viewport={ { once: true, amount: 0.3 } }
                         transition={ { duration: 0.7, ease: "easeOut" } }
                     >
-                        <AreaChart/>
+                        <Image src="/images/home/graph.webp" height={ 614 } width={ 714 } priority/>
                     </motion.div>
                 </div>
             </section>
@@ -457,7 +456,7 @@ export default function Home() {
                     </motion.p>
 
                     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 pb-10">
-                        {[
+                        { [
                             {
                                 img: "/images/home/steps/step1.webp",
                                 title: "Step 1",
@@ -476,46 +475,46 @@ export default function Home() {
                             { img: "/images/home/steps/step4.webp", title: "Step 4", desc: "Validate & Test" },
                             { img: "/images/home/steps/step5.webp", title: "Step 5", desc: "Go Live Instantly" },
                         ].map((step, i, arr) => (
-                            <div key={i} className="flex items-center">
+                            <div key={ i } className="flex items-center">
                                 <motion.div
                                     className="flex flex-col items-center text-center"
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.2 * i }}
+                                    initial={ { opacity: 0, y: 40 } }
+                                    whileInView={ { opacity: 1, y: 0 } }
+                                    viewport={ { once: true } }
+                                    transition={ { duration: 0.6, delay: 0.2 * i } }
                                 >
                                     <Image
-                                        src={step.img}
-                                        alt={step.title}
+                                        src={ step.img }
+                                        alt={ step.title }
                                         className="mb-3 w-20 h-20"
-                                        height={91}
-                                        width={91}
+                                        height={ 91 }
+                                        width={ 91 }
                                     />
-                                    <h6 className="text-lg font-semibold">{step.title}</h6>
+                                    <h6 className="text-lg font-semibold">{ step.title }</h6>
                                     <p
                                         className="text-base"
-                                        dangerouslySetInnerHTML={{ __html: step.desc }}
+                                        dangerouslySetInnerHTML={ { __html: step.desc } }
                                     />
                                 </motion.div>
 
-                                {i < arr.length - 1 && (
+                                { i < arr.length - 1 && (
                                     <motion.div
                                         className="hidden sm:block"
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.6, delay: 0.2 * i + 0.1 }}
+                                        initial={ { opacity: 0, x: -20 } }
+                                        whileInView={ { opacity: 1, x: 0 } }
+                                        viewport={ { once: true } }
+                                        transition={ { duration: 0.6, delay: 0.2 * i + 0.1 } }
                                     >
                                         <Image
                                             src="/images/home/arrow.webp"
                                             alt="arrow"
-                                            height={12}
-                                            width={87}
+                                            height={ 12 }
+                                            width={ 87 }
                                         />
                                     </motion.div>
-                                )}
+                                ) }
                             </div>
-                        ))}
+                        )) }
                     </div>
                 </div>
             </section>

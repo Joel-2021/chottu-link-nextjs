@@ -52,9 +52,9 @@ export default function HeroSection() {
                 </motion.div>
 
                 <motion.div
-                    initial={{ scale: 0.95 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ filter: "blur(10px)" }}
+                    animate={{ filter: "blur(0px)" }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={ { once: true } }
                 >
                     <Image

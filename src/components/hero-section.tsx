@@ -25,7 +25,7 @@ export default function HeroSection() {
                     </motion.h1>
 
                     <motion.p
-                        className="mt-4 mb-6 text-lg text-balance"
+                        className="mt-4 mb-6 text-lg font-quicksand text-balance"
                         initial={ { opacity: 0, y: 20 } }
                         whileInView={ { opacity: 1, y: 0 } }
                         transition={ { duration: 0.8, delay: 0.4 } }

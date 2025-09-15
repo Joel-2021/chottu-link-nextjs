@@ -115,7 +115,7 @@ export default function WhyChottulink() {
                                         src={ `/images/home/marquee/${ icon }.webp` }
                                         height="40"
                                         width="40"
-                                        className="w-auto"
+                                        className="w-auto size-[40px]"
                                         alt={ icon }
                                     />
                                 </MarqueeItem>

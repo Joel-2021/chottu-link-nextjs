@@ -129,7 +129,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="bg-card scroll-mt-24 px-4">
+            <section className="bg-card scroll-mt-24 px-4 overflow-hidden">
                 <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
                     <motion.div
                         initial={ { opacity: 0, y: 50 } }
@@ -142,7 +142,7 @@ export default function Home() {
                             alt="laptop"
                             height={ 442 }
                             width={ 732 }
-                            className="w-full max-w-[744px] h-auto"
+                            className="w-full max-w-full h-auto"
                         />
                     </motion.div>
 
@@ -168,7 +168,7 @@ export default function Home() {
             <section
                 className="bg-transparent text-center mx-auto px-4"
             >
-                <div className="max-w-1400 mx-auto">
+                <div className="max-w-1400 mx-auto overflow-hidden">
                     <motion.h2
                         className="pt-12 sm:pt-20 mb-10 flex justify-center text-2xl sm:text-4xl font-semibold"
                         initial={ { opacity: 0, y: 30 } }
@@ -223,7 +223,7 @@ export default function Home() {
                             <div className="p-8">
                                 <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
                                     <Image src="/images/home/link.webp" alt="bulk" height={ 60 } width={ 60 }
-                                           className="sm:size-[60px] size-[40px]"/>
+                                           className="sm:size-[60px] size-[40px] shrink-0"/>
                                     <h4 className="sm:text-3xl text-2xl">Bulk link generation made simple</h4>
                                 </div>
                                 <p>

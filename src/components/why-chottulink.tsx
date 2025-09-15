@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WhyChottulink() {
     return (
-        <section id="why-chottulink" className="mt-16 px-4 scroll-mt-30">
+        <section id="why-chottulink" className="mt-16 px-4 scroll-mt-30 overflow-hidden">
             <div className="max-w-1400 bg-primary sm:p-12 p-5 rounded-3xl shadow mx-auto scroll-mt-25"
             >
                 <div className="flex flex-col md:flex-row sm:gap-12 gap-10 md:items-start items-center text-card-foreground">
@@ -20,7 +20,7 @@ export default function WhyChottulink() {
                             width="489"
                             priority={ true }
                             alt="section2"
-                            className="w-full sm:w-auto h-auto"
+                            className="w-full max-w-full sm:w-auto h-auto"
                         />
                     </motion.div>
 

@@ -6,7 +6,7 @@ export default function FaqSection() {
     return (
         <section className="max-w-1400 mx-auto scroll-mt-24 px-4">
             <motion.h2
-                className="md:mt-25 mt-12 text-3xl sm:text-4xl font-bold text-start mb-5"
+                className="md:mt-25 mt-12 text-2xl sm:text-5xl font-bold text-start mb-5"
                 initial={ { opacity: 0, y: 30 } }
                 whileInView={ { opacity: 1, y: 0 } }
                 viewport={ { once: true } }

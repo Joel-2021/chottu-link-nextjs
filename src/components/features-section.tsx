@@ -17,7 +17,7 @@ export default function FeaturesSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <h2 className="text-5xl font-bold mb-3">
+                <h2 className="text-2xl sm:text-5xl font-bold mb-3">
                     Powerful Features
                 </h2>
                 <p className="text-xl max-w-[80%] mx-auto mb-12">
@@ -65,7 +65,7 @@ export default function FeaturesSection() {
                                 transition={{ duration: 0.5, delay: 0.1 * i, ease: "easeOut" }}
                             >
                                 <div className="md:w-1/2 w-full">
-                                    <h6 className="text-3xl font-semibold mb-3">{feature.heading}</h6>
+                                    <h3 className="text-3xl font-semibold mb-3">{feature.heading}</h3>
                                     <p className="font-quicksand text-lg">{feature.description}</p>
                                 </div>
                                 <Image

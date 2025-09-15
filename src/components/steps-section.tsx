@@ -6,7 +6,7 @@ export default function StepsSection() {
         <section className="bg-[image:var(--gradient2)]">
             <div className="max-w-1400 mx-auto text-center py-20">
                 <motion.h2
-                    className="pb-4 flex justify-center text-2xl sm:text-4xl font-semibold"
+                    className="pb-4 flex justify-center text-2xl sm:text-5xl font-semibold"
                     initial={ { opacity: 0, y: 30 } }
                     whileInView={ { opacity: 1, y: 0 } }
                     viewport={ { once: true } }
@@ -62,7 +62,7 @@ export default function StepsSection() {
                                     height={ 91 }
                                     width={ 91 }
                                 />
-                                <h6 className="text-lg font-semibold">{ step.title }</h6>
+                                <h3 className="text-lg font-semibold">{ step.title }</h3>
                                 <p
                                     className="text-base"
                                     dangerouslySetInnerHTML={ { __html: step.desc } }

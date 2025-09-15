@@ -70,7 +70,7 @@ export default function HeroSection() {
 
             {/* Trusted Brands */ }
             <section className="text-center my-24">
-                <motion.h1
+                <motion.h2
                     className="mt-12 sm:mt-24 mb-10 text-2xl sm:text-4xl font-semibold"
                     initial={ { opacity: 0, y: 30 } }
                     whileInView={ { opacity: 1, y: 0 } }
@@ -78,7 +78,7 @@ export default function HeroSection() {
                     viewport={ { once: true } }
                 >
                     Trusted By Leading Brands Worldwide
-                </motion.h1>
+                </motion.h2>
 
                 <motion.div
                     className="flex items-center justify-center gap-4 mb-10"

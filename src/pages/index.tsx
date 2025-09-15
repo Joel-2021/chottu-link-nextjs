@@ -85,9 +85,9 @@ export default function Home() {
                         viewport={ { once: true, amount: 0.3 } }
                         transition={ { duration: 0.7, ease: "easeOut" } }
                     >
-                        <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
+                        <h2 className="font-poppins text-2xl sm:text-5xl font-semibold leading-tight mb-4">
                             Discover Campaign Success with Powerful Analytics
-                        </h3>
+                        </h2>
                         <p className="text-base md:text-lg font-medium font-quicksand">
                             ChottuLink gives you full control over your campaigns with smart tracking and actionable
                             insights. From the first click to the final in-app action, get the complete picture of how
@@ -153,9 +153,9 @@ export default function Home() {
                         viewport={ { once: true, amount: 0.3 } }
                         transition={ { duration: 0.8, ease: "easeOut", delay: 0.2 } }
                     >
-                        <h3 className="font-poppins text-3xl md:text-5xl font-semibold leading-tight mb-4">
+                        <h2 className="font-poppins text-2xl sm:text-5xl font-semibold leading-tight mb-4">
                             Convert, Retain, and Grow with ChottuLink
-                        </h3>
+                        </h2>
                         <p className="text-base md:text-lg font-medium font-quicksand sm:pb-0 pb-12">
                             Many users drop off after their first interaction. Our advanced engagement tools
                             help you bring them back with tailored messaging and intelligent retargeting
@@ -170,7 +170,7 @@ export default function Home() {
             >
                 <div className="max-w-1400 mx-auto overflow-hidden">
                     <motion.h2
-                        className="pt-12 sm:pt-20 mb-10 flex justify-center text-2xl sm:text-4xl font-semibold"
+                        className="pt-12 sm:pt-20 mb-10 flex justify-center text-2xl sm:text-5xl font-semibold"
                         initial={ { opacity: 0, y: 30 } }
                         whileInView={ { opacity: 1, y: 0 } }
                         viewport={ { once: true } }
@@ -206,7 +206,7 @@ export default function Home() {
                                     <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
                                         <Image src={ card.img } alt="journey" height={ 60 } width={ 60 }
                                                className="sm:size-[60px] size-[40px]"/>
-                                        <h4 className="sm:text-3xl text-2xl">{ card.title }</h4>
+                                        <h3 className="sm:text-3xl text-2xl">{ card.title }</h3>
                                     </div>
                                     <p>{ card.desc }</p>
                                 </div>
@@ -224,7 +224,7 @@ export default function Home() {
                                 <div className="flex items-center gap-2 text-[28px] font-semibold leading-8 mb-4">
                                     <Image src="/images/home/link.webp" alt="bulk" height={ 60 } width={ 60 }
                                            className="sm:size-[60px] size-[40px] shrink-0"/>
-                                    <h4 className="sm:text-3xl text-2xl">Bulk link generation made simple</h4>
+                                    <h3 className="sm:text-3xl text-2xl">Bulk link generation made simple</h3>
                                 </div>
                                 <p>
                                     With just a few clicks, you can generate and customize thousands of links at
@@ -265,7 +265,7 @@ export default function Home() {
                     transition={ { duration: 0.7 } }
                     className="text-center md:mt-30 mt-25"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-10">ChottuLink vs Other Competitors
+                    <h2 className="text-2xl sm:text-5xl font-bold mb-10">ChottuLink vs Other Competitors
                     </h2>
                     <div className="table-wrapper p-0 sm:p-3">
                         <table

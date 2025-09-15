@@ -11,7 +11,7 @@ export default function JourneySection() {
         >
             {/* Section heading */ }
             <motion.h2
-                className="text-5xl font-bold mb-3"
+                className="text-2xl sm:text-5xl font-bold mb-3"
                 initial={ { opacity: 0, y: 40 } }
                 whileInView={ { opacity: 1, y: 0 } }
                 transition={ { duration: 0.7, ease: "easeOut" } }
@@ -56,9 +56,9 @@ export default function JourneySection() {
                                     transition={ { duration: 0.7, ease: "easeOut" } }
                                     viewport={ { once: true, amount: 0.2 } }
                                 >
-                                    <h6 className="text-3xl font-semibold mb-3">
+                                    <h3 className="text-3xl font-semibold mb-3">
                                         { feature.heading }
-                                    </h6>
+                                    </h3>
                                     <p
                                         className="font-quicksand text-lg"
                                         dangerouslySetInnerHTML={ {

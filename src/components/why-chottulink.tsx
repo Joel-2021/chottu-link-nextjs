@@ -77,7 +77,7 @@ export default function WhyChottulink() {
                                         className="mt-1"
                                     />
                                     <div>
-                                        <h4 className="font-bold text-lg sm:text-xl mb-1">{ title }</h4>
+                                        <h3 className="font-bold text-lg sm:text-xl mb-1">{ title }</h3>
                                         <p className="font-quicksand text-base sm:text-lg">{ text }</p>
                                     </div>
                                 </motion.div>

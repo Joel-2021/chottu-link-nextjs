@@ -1,9 +1,13 @@
 import "@/styles/globals.css";
-import Layout from "@/layout/layout";
 import type { AppProps } from "next/app";
 import { initializeTavasAnalytics } from "@/lib/tavas-analytics";
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
+
+const Layout = dynamic(() => import('../layout/layout'), {
+    ssr: true,
+});
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -11,9 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
         initializeTavasAnalytics()
     }, []);
 
-    return <Layout>
-        <Head>
-            <title>Chottu Link</title>
-        </Head>
-        <Component { ...pageProps } /> </Layout>;
+    return <Suspense fallback={null}>
+        <Layout>
+            <Head>
+                <title>Chottu Link</title>
+            </Head>
+            <Component { ...pageProps } />
+        </Layout>
+    </Suspense>
 }

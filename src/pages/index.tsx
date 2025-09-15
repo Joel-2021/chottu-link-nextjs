@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import { motion } from "motion/react"
+import { Suspense } from "react";
 
 const JourneySection = dynamic(() => import("../components/journey-section"), {
     ssr: true,
@@ -62,13 +63,17 @@ export default function Home() {
                 <meta name="twitter:description" content={ metaDescription }/>
             </Head>
 
-            <HeroSection/>
+            <Suspense>
+                <HeroSection/>
 
-            <WhyChottulink/>
+                <WhyChottulink/>
 
-            <JourneySection/>
+                <JourneySection/>
 
-            <FeaturesSection/>
+                <FeaturesSection/>
+            </Suspense>
+
+
 
             <section className="bg-[image:var(--gradient1)] py-16 scroll-mt-24 px-4">
                 <div className="max-w-1400 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
@@ -248,7 +253,9 @@ export default function Home() {
                 </div>
             </section>
 
-            <StepsSection/>
+            <Suspense>
+                <StepsSection/>
+            </Suspense>
 
             <section className="max-w-1400 mx-auto scroll-mt-24 px-4">
                 <motion.div
@@ -314,9 +321,11 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <FaqSection/>
+            <Suspense>
+                <FaqSection/>
 
-            <GetStarted/>
+                <GetStarted/>
+            </Suspense>
         </>
     );
 }

@@ -22,38 +22,36 @@ interface PosthogInstance {
 }
 
 export function initializeTavasAnalytics() {
-    if ( typeof window === "undefined" || typeof document === "undefined" ) {
-        return // ensure runs only on client
-    }
+    if (typeof window === "undefined" || typeof document === "undefined") return;
 
-    if ( CONFIG.analytics.tavas.enabled ) {
-        try {
-            const script = document.createElement("script")
-            script.src = `${ CONFIG.analytics.tavas.host }/static/array.js`
+    const loadScript = () => {
+        if (!CONFIG.analytics.tavas.enabled) return;
 
-            script.onload = () => {
-                if ( window.posthog ) {
-                    window.posthog.init(CONFIG.analytics.tavas.apiKey!, {
-                        api_host: CONFIG.analytics.tavas.host!,
-                        autocapture: false,
-                        loaded: (posthogInstance: PosthogInstance) => {
-                            console.log("Tavas Analytics initialized")
-                            window.tavas = posthogInstance
-                        },
-                    })
-                } else {
-                    console.warn("PostHog not found after loading.")
-                }
+        const script = document.createElement("script");
+        script.src = `${CONFIG.analytics.tavas.host}/static/array.js`;
+        script.async = true;
+        script.defer = true;
+
+        script.onload = () => {
+            if (window.posthog) {
+                window.posthog.init(CONFIG.analytics.tavas.apiKey!, {
+                    api_host: CONFIG.analytics.tavas.host!,
+                    autocapture: false,
+                    loaded: (posthogInstance: PosthogInstance) => {
+                        console.log("Tavas Analytics initialized");
+                        window.tavas = posthogInstance;
+                    },
+                });
             }
+        };
 
-            script.onerror = () => {
-                console.warn("Failed to load Tavas Analytics script.")
-            }
+        document.head.appendChild(script);
+    };
 
-            document.head.appendChild(script)
-        } catch (e) {
-            console.error("Error initializing Tavas Analytics:", e)
-        }
+    if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(() => loadScript());
+    } else {
+        setTimeout(loadScript, 2000);
     }
 }
 

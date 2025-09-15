@@ -97,12 +97,12 @@ export default function Home() {
                         whileInView={ { opacity: 1, x: 0 } }
                         transition={ { duration: 0.8, delay: 0.3 } }
                         viewport={ { once: true } }
+                        className="w-full h-full relative"
                     >
                         <Image
                             src="/images/home/hero-img.webp"
-                            height="484"
-                            width="768"
-                            priority={true}
+                            fill
+                            priority
                             sizes="(min-width: 768px) 50vw, 100vw"
                             alt="hero-section"
                         />

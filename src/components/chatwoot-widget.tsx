@@ -1,5 +1,6 @@
 "use client";
 import { CONFIG } from "@/config/config";
+import Head from "next/head";
 import { useEffect } from "react";
 
 declare global {
@@ -28,10 +29,11 @@ export default function ChatwootWidget() {
         (function (d: Document) {
             const BASE_URL = CONFIG.analytics.chatwoot.baseUrl!;
             const g = d.createElement("script") as HTMLScriptElement;
-            const s = d.getElementsByTagName("script")[0];
+            const s = d.getElementsByTagName("script")[ 0 ];
 
             g.src = BASE_URL + "/packs/js/sdk.js";
             g.async = true;
+            g.defer = true;
             g.onload = function () {
                 window.chatwootSDK?.run({
                     websiteToken: CONFIG.analytics.chatwoot.websiteToken!,
@@ -39,12 +41,22 @@ export default function ChatwootWidget() {
                 });
             };
 
-            if (s?.parentNode) {
+            if ( s?.parentNode ) {
                 s.parentNode.insertBefore(g, s);
             }
         })(document);
     }, []);
 
-    return null;
+    return <Head>
+        <link
+            rel="preconnect"
+            href={ CONFIG.analytics.chatwoot.baseUrl }
+            crossOrigin=""
+        />
+        <link
+            rel="dns-prefetch"
+            href={ CONFIG.analytics.chatwoot.baseUrl }
+        />
+    </Head>;
 }
 
